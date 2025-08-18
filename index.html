@@ -61,8 +61,12 @@
 </script>
 </head>
 <body>
+<!-- Skip Navigation Links -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<a href="#navigation" class="skip-link">Skip to navigation</a>
+
 <header>
-<nav class="container">
+<nav class="container" id="navigation">
 <div class="logo">
 <img src="logobrilonly.svg" alt="Winsemius Group Logo" class="logo-icon" loading="lazy">
                 <div class="logo-text">
@@ -83,7 +87,7 @@
 </ul>
 </nav>
 </header>
-<main>
+<main id="main-content">
 <section class="hero" id="home">
 <div class="container">
 <h1 class="track-looser lh-105">Independent intermediary in defence innovation.</h1>
@@ -203,13 +207,13 @@
 </section>
 <section class="section poster-philosophy">
 <div class="container">
-<div class="slider-controls">
-<button class="slider-btn prev" id="prevSlide">‹</button>
-<div class="slider-dots" id="sliderDots"></div>
-<button class="slider-btn next" id="nextSlide">›</button>
+<div class="slider-controls" role="group" aria-label="Philosophy slider controls">
+<button class="slider-btn prev" id="prevSlide" aria-label="Previous slide">‹</button>
+<div class="slider-dots" id="sliderDots" role="tablist" aria-label="Slide navigation"></div>
+<button class="slider-btn next" id="nextSlide" aria-label="Next slide">›</button>
 </div>
-<div class="poster-canvas">
-<svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" class="philosophy-poster">
+<div class="poster-canvas" role="region" aria-label="Company philosophy presentation">
+<svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" class="philosophy-poster" role="img" aria-label="Philosophy poster showing our approach differences">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:wght@400;700&display=swap');
 
@@ -329,7 +333,7 @@ setTimeout(() => {
 </div>
 </div>
 <div class="contact-column">
-<h3>Connect With Us</h3>
+<h3>Connect</h3>
 <div class="contact-item">
 <div class="contact-icon"><img src="noun-email-5366276.svg" alt="Email" loading="lazy" /></div>
 <div>
@@ -397,6 +401,10 @@ CC BY-NC-SA 4.0
 </div>
 </div>
 </footer>
+
+<!-- Back to Top Button -->
+<button id="back-to-top" aria-label="Back to top">↑</button>
+
 <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -613,6 +621,90 @@ CC BY-NC-SA 4.0
 
         // Initialize poster slider
         initPosterSlider();
+
+        // Back to top button functionality
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        // Smooth scroll to top when clicked
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Active section indicators
+        function updateActiveNavigation() {
+            const sections = document.querySelectorAll('section[id], main > div[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let currentSection = '';
+            const scrollPosition = window.scrollY + 200; // Offset for header
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            // Special case for hero section
+            if (window.scrollY < 300) {
+                currentSection = 'home';
+            }
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        // Update active navigation on scroll
+        window.addEventListener('scroll', updateActiveNavigation);
+        
+        // Initial call to set active state
+        updateActiveNavigation();
+
+        // Keyboard navigation for slider
+        document.addEventListener('keydown', (e) => {
+            // Only handle keyboard navigation when slider is in focus
+            const sliderContainer = document.querySelector('.poster-philosophy');
+            if (!sliderContainer.contains(document.activeElement)) return;
+            
+            switch(e.key) {
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    prevPosterSlide();
+                    break;
+                case 'ArrowRight':
+                    e.preventDefault();
+                    nextPosterSlide();
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    currentPosterSlide = 0;
+                    updatePosterSlider();
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    currentPosterSlide = posterSlides.length - 1;
+                    updatePosterSlider();
+                    break;
+            }
+        });
 
         // Form submission handling (no form exists, so removing this)
         // document.querySelector('form').addEventListener('submit', function(e) {
