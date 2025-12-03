@@ -95,6 +95,25 @@ h4 {
 .lh-105 { line-height: 1.05; }
 .lh-115 { line-height: 1.15; }
 
+/* Skip Links */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #3b82f6;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  z-index: 10000;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
 /* Header */
 header {
   background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
@@ -179,6 +198,24 @@ nav {
 
 .nav-links a:hover {
   opacity: 0.8;
+}
+
+.nav-links a.active {
+  opacity: 1;
+  position: relative;
+}
+
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
 }
 
 /* Main content */
@@ -1354,6 +1391,49 @@ body.dark .cc-badge-svg .cc-badge-bg {
 
 body.dark .cc-badge-svg .cc-badge-text {
   fill: white;
+}
+
+/* Back to Top Button */
+#back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  z-index: 1000;
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#back-to-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+/* Dark mode back to top button */
+body.dark #back-to-top {
+  background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+}
+
+body.dark #back-to-top:hover {
+  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
 }
 
 /* Mobile styles for poster philosophy */
