@@ -1,0 +1,5 @@
+# Compendium source files (only deploy built files)
+compendium-src/
+
+# macOS
+.DS_Store

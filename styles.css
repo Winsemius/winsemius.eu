@@ -391,6 +391,102 @@ main {
   font-weight: 600;
 }
 
+/* Insights Section */
+.insights-intro {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.insight-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e2e8f0;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.insight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.insight-card .insight-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  padding: 12px;
+}
+
+.insight-card .insight-icon img {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1);
+}
+
+.insight-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: #1a1a1a;
+}
+
+.insight-card p {
+  font-family: "Inter", system-ui, sans-serif;
+  color: #6b7280;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.insight-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  align-self: flex-start;
+}
+
+.insights-cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.cta-secondary {
+  background: transparent;
+  border: 2px solid #3b82f6;
+  color: #3b82f6;
+}
+
+.cta-secondary:hover {
+  background: #3b82f6;
+  color: white;
+}
+
 /* Poster Philosophy Slider Section */
 .poster-philosophy {
   background: #f8fafc;
@@ -1204,6 +1300,29 @@ body.dark .impact-inline-item p {
   color: #e2e8f0;
 }
 
+body.dark .insight-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+body.dark .insight-card h3 {
+  color: #f1f5f9;
+}
+
+body.dark .insight-badge {
+  background: rgba(59, 130, 246, 0.2);
+}
+
+body.dark .cta-secondary {
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+body.dark .cta-secondary:hover {
+  background: #3b82f6;
+  color: white;
+}
+
 body.dark .stats {
   background: #1e293b;
 }
@@ -1342,6 +1461,15 @@ body.dark .mood-photo:hover {
 
   .case-item {
     padding: 2rem;
+  }
+
+  .insights-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .insight-card {
+    padding: 1.5rem;
   }
 
   .mood-gallery {

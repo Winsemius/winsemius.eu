@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkwinsemius_compendium=globalThis.webpackChunkwinsemius_compendium||[]).push([[2325],{2325(e,i,s){s.d(i,{createPacketServices:()=>c.$});var c=s(1477);s(7960)}}]);
