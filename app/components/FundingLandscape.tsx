@@ -112,12 +112,23 @@ function FlipCard({ card }: { card: CardData }) {
   const [flipped, setFlipped] = useState(false);
 
   return (
-    <button
+    <div
       onClick={() => setFlipped(!flipped)}
-      className="w-full cursor-pointer rounded-2xl border border-white/10 bg-white/5 p-6 text-left transition-all hover:border-white/20"
+      className="cursor-pointer"
+      style={{ perspective: "1000px" }}
     >
-      {!flipped ? (
-        <>
+      <div
+        className="relative transition-transform duration-500"
+        style={{
+          transformStyle: "preserve-3d",
+          transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
+        }}
+      >
+        {/* Front */}
+        <div
+          className="w-full rounded-2xl border border-white/10 bg-white/5 p-6 text-left hover:border-white/20"
+          style={{ backfaceVisibility: "hidden" }}
+        >
           <p
             className="text-[0.65rem] font-bold tracking-[0.12em]"
             style={{ color: card.color }}
@@ -132,11 +143,18 @@ function FlipCard({ card }: { card: CardData }) {
           </p>
           <p className="mt-2 text-sm text-white/40">{card.summary}</p>
           <p className="mt-4 text-[0.6rem] font-semibold tracking-[0.1em] text-white/25 uppercase">
-            Click to learn more
+            Click to learn more &#x21BB;
           </p>
-        </>
-      ) : (
-        <>
+        </div>
+
+        {/* Back */}
+        <div
+          className="absolute inset-0 w-full rounded-2xl border border-white/10 bg-white/5 p-6 text-left hover:border-white/20"
+          style={{
+            backfaceVisibility: "hidden",
+            transform: "rotateY(180deg)",
+          }}
+        >
           <p
             className="text-[0.65rem] font-bold tracking-[0.12em]"
             style={{ color: card.color }}
@@ -147,11 +165,11 @@ function FlipCard({ card }: { card: CardData }) {
             {card.detail}
           </p>
           <p className="mt-4 text-[0.6rem] font-semibold tracking-[0.1em] text-white/25 uppercase">
-            Click to flip back
+            Click to flip back &#x21BB;
           </p>
-        </>
-      )}
-    </button>
+        </div>
+      </div>
+    </div>
   );
 }
 
