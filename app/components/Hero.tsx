@@ -14,26 +14,25 @@ export default function Hero() {
           />
 
           <h1 className="text-5xl font-semibold leading-[1.08] tracking-[-0.035em] text-white md:text-7xl">
-            From consortium
+            Defence policy
             <br />
-            to capability.
+            that moves.
           </h1>
 
           <p className="mt-8 max-w-lg text-lg leading-relaxed text-[#8A9BB5]">
-            We build defence partnerships, run the projects, write the contracts,
-            and deliver across borders. All from one desk in Amsterdam.
+            We write the policy, shape the funding strategies, and build the
+            coalitions that turn European defence ideas into funded programmes.
           </p>
 
           <a
             href="#contact"
             className="mt-12 inline-block bg-accent px-8 py-4 text-sm font-medium tracking-widest text-white uppercase transition-all hover:bg-accent-dark"
           >
-            Start a conversation
+            Get in touch
           </a>
         </div>
       </div>
 
-      {/* Subtle gradient at bottom for transition */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-ink-light to-transparent" />
     </section>
   );

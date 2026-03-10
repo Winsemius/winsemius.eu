@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Winsemius Group — Independent Intermediary in Defence Innovation",
+  title: "Winsemius Group — Defence Policy & Funding Strategy",
   description:
-    "Programme office, consortium assembly, contracting, and international delivery in defence innovation — under one roof. Based in Amsterdam.",
+    "Policy influence, funding strategy, and coalition building for European defence. Based in Amsterdam.",
   openGraph: {
-    title: "Winsemius Group — Independent Intermediary in Defence Innovation",
+    title: "Winsemius Group — Defence Policy & Funding Strategy",
     description:
-      "We assemble and run delivery vehicles that sign contracts and ship capability.",
+      "We write the policy, shape the funding strategies, and build the coalitions that turn European defence ideas into funded programmes.",
     url: "https://winsemius.eu",
     siteName: "Winsemius Group",
     type: "website",
@@ -43,7 +43,7 @@ export default function RootLayout({
               url: "https://winsemius.eu",
               logo: "https://winsemius.eu/logobrilonly.svg",
               description:
-                "Independent intermediary in defence innovation. Programme office, consortium assembly, contracting, and international delivery — under one roof.",
+                "Policy influence, funding strategy, and coalition building for European defence.",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Hillegomstraat 7-H",

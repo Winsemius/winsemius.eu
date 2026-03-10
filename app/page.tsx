@@ -1,9 +1,7 @@
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
-import Problem from "./components/Problem";
-import HowWeWork from "./components/HowWeWork";
-import ProofBar from "./components/ProofBar";
-import Different from "./components/Different";
+import WhatWeDo from "./components/WhatWeDo";
+import Insights from "./components/Insights";
 import Audience from "./components/Audience";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -14,10 +12,8 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <Problem />
-        <HowWeWork />
-        <ProofBar />
-        <Different />
+        <WhatWeDo />
+        <Insights />
         <Audience />
         <Contact />
       </main>

@@ -5,24 +5,20 @@ import { useReveal } from "../hooks/useReveal";
 
 const audiences = [
   {
-    title: "For deep-tech SMEs",
-    text: "You built something great but defence procurement feels impossible. We connect you to the right partners, structure the contracts, and get your technology in front of the buyers.",
+    title: "Ministries & agencies",
+    text: "You want new technology that works in the field. We connect you with the right industry partners, structure the funding, and manage the programme from policy to delivery.",
   },
   {
-    title: "For primes",
-    text: "You need reliable local partners in other countries. We find them, check them out, set up the teaming agreements, and manage the project so you don't have to.",
+    title: "Deep-tech SMEs",
+    text: "You built something great but defence procurement feels impossible. We position your technology, find the right consortium partners, and navigate the funding calls.",
   },
   {
-    title: "For governments & defence",
-    text: "You want new technology that actually works. We put together the teams, test the products with real operators, and deliver on time.",
+    title: "Primes",
+    text: "You need reliable local partners in other countries. We find them, check them out, set up the teaming agreements, and manage the cross-border complexity.",
   },
   {
-    title: "For financiers",
-    text: "You want to invest in defence but need to understand the market. We help you find the right opportunities and connect you with the companies that are ready to scale.",
-  },
-  {
-    title: "For research organisations",
-    text: "You have the knowledge but need a path to deployment. We connect your research to industry partners and help turn results into funded programmes.",
+    title: "Financiers",
+    text: "You want to invest in defence but need to understand the landscape. We map the opportunities and connect you with the companies and programmes that are ready.",
   },
 ];
 
@@ -57,16 +53,19 @@ export default function Audience() {
   const ref = useReveal();
 
   return (
-    <section id="about" className="bg-sand py-32 md:py-40" ref={ref}>
+    <section id="about" className="bg-white py-32 md:py-40" ref={ref}>
       <div className="mx-auto max-w-6xl px-6">
-        {/* Audience segments */}
-        <div className="grid gap-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 md:gap-16">
+        <h2 className="reveal text-xs font-semibold tracking-[0.2em] text-accent uppercase">
+          Who we work with
+        </h2>
+
+        <div className="mt-12 grid gap-12 sm:grid-cols-2 lg:grid-cols-4 md:gap-10">
           {audiences.map((a, i) => (
             <div key={a.title} className={`reveal stagger-${i + 1}`}>
-              <h3 className="text-xs font-semibold tracking-[0.2em] text-accent uppercase">
+              <h3 className="text-sm font-semibold tracking-[-0.01em]">
                 {a.title}
               </h3>
-              <p className="mt-4 text-[15px] leading-relaxed text-slate">
+              <p className="mt-3 text-[15px] leading-relaxed text-slate">
                 {a.text}
               </p>
             </div>
@@ -74,7 +73,7 @@ export default function Audience() {
         </div>
 
         {/* Team */}
-        <div className="reveal stagger-4 mt-24 border-t border-stone pt-20 md:mt-32 md:pt-24">
+        <div className="reveal stagger-5 mt-24 border-t border-stone pt-20 md:mt-32 md:pt-24">
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {team.map((t) => (
               <div key={t.name + t.role} className="group">
