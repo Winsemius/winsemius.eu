@@ -57,7 +57,7 @@ export default function Hero() {
             Independent intermediary in defence innovation.
           </h1>
 
-          <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/60">
+          <p className="mt-8 max-w-xl text-lg leading-relaxed text-[#B8C4D4]">
             Programme office, consortium assembly, contracting, and international
             delivery — under one roof.
           </p>

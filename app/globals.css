@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-ink: #0f1729;
-  --color-ink-light: #162038;
-  --color-sand: #f3f1ed;
-  --color-stone: #e5e1dc;
+  --color-ink: #0A1628;
+  --color-ink-light: #162640;
+  --color-sand: #F4F3F0;
+  --color-stone: #E8E6E3;
   --color-warm: #d4ccc3;
-  --color-slate: #6b7280;
+  --color-slate: #4A4A5A;
   --color-accent: #3d7aed;
   --color-accent-dark: #2d63c9;
   --font-display: "Inter", system-ui, -apple-system, sans-serif;

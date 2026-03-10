@@ -61,7 +61,7 @@ export default function Philosophy() {
           <blockquote className="text-2xl font-medium leading-snug tracking-[-0.02em] text-white md:text-4xl md:leading-snug">
             {slides[current].headline}
           </blockquote>
-          <p className="mt-6 text-lg text-white/40 italic">
+          <p className="mt-6 text-lg text-[#B8C4D4]/60 italic">
             {slides[current].subline}
           </p>
         </div>

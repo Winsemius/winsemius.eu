@@ -31,7 +31,7 @@ export default function Home() {
             <h2 className="mt-5 text-3xl font-medium leading-snug tracking-[-0.02em] text-white md:text-4xl">
               €1,342B mobilised for European defence
             </h2>
-            <p className="mx-auto mt-5 max-w-lg text-sm leading-relaxed text-white/50">
+            <p className="mx-auto mt-5 max-w-lg text-sm leading-relaxed text-[#B8C4D4]">
               Explore the full landscape of EU funding mechanisms — from ReArm
               Europe to SAFE Loans, EDF grants, and national spending trends.
             </p>
