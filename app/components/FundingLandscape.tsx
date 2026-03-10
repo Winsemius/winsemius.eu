@@ -2,71 +2,7 @@
 
 import { useState } from "react";
 
-const barData = [
-  { year: "2019", value: 190, projected: false },
-  { year: "2020", value: 195, projected: false },
-  { year: "2021", value: 200, projected: false },
-  { year: "2022", value: 230, projected: false },
-  { year: "2023", value: 280, projected: false },
-  { year: "2024", value: 340, projected: false },
-  { year: "2025*", value: 392, projected: true },
-];
-
-const maxValue = 400;
-const gridLines = [0, 50, 100, 150, 200, 250, 300, 350, 400];
-
-function BarChart() {
-  return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
-      <h3
-        className="text-center text-lg font-normal text-white"
-        style={{ fontFamily: "var(--font-display)" }}
-      >
-        EU-27 Defence Spending
-      </h3>
-      <p className="mt-1 text-center text-[0.65rem] font-semibold tracking-[0.12em] text-white/30 uppercase">
-        Aggregate expenditure in EUR billions, 2019–2025
-      </p>
-
-      <div className="mt-8 flex items-end gap-1 sm:gap-3" style={{ height: 280 }}>
-        {/* Y-axis labels */}
-        <div className="relative flex h-full flex-col justify-between pr-2 text-right">
-          {gridLines
-            .slice()
-            .reverse()
-            .map((v) => (
-              <span key={v} className="text-[0.6rem] leading-none text-white/30">
-                €{v}B
-              </span>
-            ))}
-        </div>
-
-        {/* Bars */}
-        <div className="flex flex-1 items-end justify-around gap-1 sm:gap-2" style={{ height: "100%" }}>
-          {barData.map((d) => {
-            const heightPct = (d.value / maxValue) * 100;
-            return (
-              <div key={d.year} className="flex flex-1 flex-col items-center gap-2">
-                <div className="relative w-full" style={{ height: 240 }}>
-                  <div
-                    className={`absolute bottom-0 w-full rounded-t-sm transition-all duration-500 ${
-                      d.projected ? "bg-[#e8a838]" : "bg-[#5bb8f5]"
-                    }`}
-                    style={{ height: `${heightPct}%` }}
-                  />
-                </div>
-                <span className="text-[0.6rem] text-white/40">{d.year}</span>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 interface CardData {
-  id: string;
   label: string;
   amount: string;
   summary: string;
@@ -77,34 +13,63 @@ interface CardData {
 
 const cards: CardData[] = [
   {
-    id: "rearm",
     label: "REARM EUROPE / READINESS 2030",
     amount: "€800B",
-    summary: "Total defence spending mobilisation target",
+    summary:
+      "Total defence spending mobilisation target across EU member states",
     detailLabel: "REARM EUROPE DETAILS",
     detail:
-      "Combines national fiscal space unlocks, EU-level joint borrowing, and EIB/EIF financing to mobilise €800B over a decade.",
+      "The landmark plan combines national fiscal space unlocks, EU-level joint borrowing, and EIB/EIF financing to mobilise €800B over a decade. Member states can exempt defence spending from fiscal rules, encouraging rapid scale-up.",
     color: "#e8a838",
   },
   {
-    id: "safe",
     label: "SAFE LOANS FACILITY",
     amount: "€150B",
-    summary: "Competitively priced loans for joint procurement",
+    summary:
+      "Competitively priced loans for joint defence procurement, adopted May 2025",
     detailLabel: "SAFE LOANS DETAILS",
     detail:
-      "EU-backed loans at near-sovereign rates for collaborative procurement of air & missile defence, ammunition, and strategic enablers.",
+      "Security Action For Europe (SAFE) provides EU-backed loans at near-sovereign rates for collaborative procurement of air & missile defence, ammunition, and strategic enablers. Minimum two member states per application.",
     color: "#5bb8f5",
   },
   {
-    id: "spending",
-    label: "EU-27 DEFENCE SPENDING 2025",
+    label: "EU-27 DEFENCE SPENDING",
     amount: "€392B",
-    summary: "Projected aggregate, up 14% from 2024",
+    summary:
+      "Projected 2025 aggregate, up from €343B in 2024 \u2014 rising to 2.1% of GDP",
     detailLabel: "SPENDING TREND",
     detail:
-      "EU-27 spending has grown every year since 2014, with 18 member states now meeting or exceeding the 2% GDP target.",
+      "EU-27 defence spending has grown every year since 2014, accelerating sharply post-2022. The 2025 projection of €392B represents a 14% YoY increase, with 18 member states now meeting or exceeding the 2% GDP target.",
+    color: "#4ade80",
+  },
+  {
+    label: "DEFENCE INVESTMENT GROWTH",
+    amount: "+42%",
+    summary:
+      "Year-on-year increase in equipment & R&D spending, reaching €106B in 2024",
+    detailLabel: "INVESTMENT BREAKDOWN",
+    detail:
+      "Equipment procurement surged 42% in 2024, driven by urgent needs in air defence, ammunition, and armoured vehicles. R&D spending grew 28%, with a strong push toward autonomous systems and space capabilities.",
+    color: "#e8a838",
+  },
+  {
+    label: "EUROPEAN DEFENCE FUND 2026",
+    amount: "€1B",
+    summary: "Annual budget for collaborative R&D across 31 call topics",
+    detailLabel: "EDF DETAILS",
+    detail:
+      "The EDF co-finances collaborative R&D and capability development with 75\u2013100% EU funding rates. Priority areas: CBRN, cyber, space, maritime, and next-gen land systems. Requires consortia from at least 3 member states.",
     color: "#5bb8f5",
+  },
+  {
+    label: "EDIP GRANTS",
+    amount: "€1.5B",
+    summary:
+      "Grants for 2025\u20132027 to boost defence industrial readiness",
+    detailLabel: "EDIP DETAILS",
+    detail:
+      "The European Defence Industrial Programme targets production ramp-up, supply chain resilience, and strategic stockpiling. Focus on SME participation and reducing dependency on non-EU suppliers for critical components.",
+    color: "#4ade80",
   },
 ];
 
@@ -126,8 +91,11 @@ function FlipCard({ card }: { card: CardData }) {
       >
         {/* Front */}
         <div
-          className="w-full rounded-2xl border border-white/10 bg-white/5 p-6 text-left hover:border-white/20"
-          style={{ backfaceVisibility: "hidden" }}
+          className="w-full rounded-2xl border bg-white/5 p-6 text-left transition-colors hover:bg-white/[0.07]"
+          style={{
+            backfaceVisibility: "hidden",
+            borderColor: `color-mix(in srgb, ${card.color} 25%, transparent)`,
+          }}
         >
           <p
             className="text-[0.65rem] font-bold tracking-[0.12em]"
@@ -141,18 +109,18 @@ function FlipCard({ card }: { card: CardData }) {
           >
             {card.amount}
           </p>
-          <p className="mt-2 text-sm text-white/40">{card.summary}</p>
-          <p className="mt-4 text-[0.6rem] font-semibold tracking-[0.1em] text-white/25 uppercase">
-            Click to learn more &#x21BB;
+          <p className="mt-2 text-sm leading-relaxed text-white/40">
+            {card.summary}
           </p>
         </div>
 
         {/* Back */}
         <div
-          className="absolute inset-0 w-full rounded-2xl border border-white/10 bg-white/5 p-6 text-left hover:border-white/20"
+          className="absolute inset-0 w-full rounded-2xl border bg-white/5 p-6 text-left"
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
+            borderColor: `color-mix(in srgb, ${card.color} 25%, transparent)`,
           }}
         >
           <p
@@ -190,14 +158,10 @@ export default function FundingLandscape() {
           </p>
         </div>
 
-        <div className="mt-16 grid items-start gap-8 md:grid-cols-2">
-          <BarChart />
-
-          <div className="flex flex-col gap-4">
-            {cards.map((card) => (
-              <FlipCard key={card.id} card={card} />
-            ))}
-          </div>
+        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {cards.map((card) => (
+            <FlipCard key={card.label} card={card} />
+          ))}
         </div>
       </div>
     </section>
