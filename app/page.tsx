@@ -23,7 +23,7 @@ export default function Home() {
         <Services />
         <Team />
         {/* Funding teaser */}
-        <section className="bg-ink py-24 text-center">
+        <section className="bg-ink-light py-24 text-center">
           <div className="mx-auto max-w-3xl px-6">
             <span className="text-xs font-semibold tracking-[0.2em] text-accent uppercase">
               EU Defence Funding
