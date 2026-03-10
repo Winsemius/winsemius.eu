@@ -4,15 +4,15 @@ import { useReveal } from "../hooks/useReveal";
 
 const statements = [
   {
-    text: "SMEs build great technology but cannot navigate multinational procurement alone.",
+    text: "Small defence companies build great tech but can't get through the procurement maze on their own.",
     align: "text-left",
   },
   {
-    text: "Governments want innovation speed but get slide decks and letters of intent.",
+    text: "Governments want faster innovation but keep getting presentations instead of products.",
     align: "text-center md:pl-24",
   },
   {
-    text: "The ecosystem exists. What is missing is the operator who assembles it, contracts it, and delivers.",
+    text: "The companies and the money are there. What's missing is someone who puts it all together and gets it across the finish line.",
     align: "text-right",
   },
 ];

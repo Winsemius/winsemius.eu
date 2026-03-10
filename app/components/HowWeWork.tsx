@@ -7,22 +7,22 @@ const clusters = [
     step: "01",
     title: "Assemble",
     description:
-      "We form the consortium — capability-based clustering, industrial teaming agreements, IP vehicles, and strategic positioning. Ready to sign before the call lands.",
-    outcome: "Consortia that exist as legal entities, not as slide decks.",
+      "We find the right companies, sort out who does what, and get everyone under one agreement. By the time a funding call opens, the team is already in place.",
+    outcome: "Real partnerships with signed agreements, not slide decks with good intentions.",
   },
   {
     step: "02",
     title: "Contract",
     description:
-      "We draft, negotiate, and close. Contract structuring, export control, compliance frameworks, pre-commitment funding, and escrow arrangements.",
-    outcome: "Validation-to-contract in weeks.",
+      "We write the contracts, handle export rules, set up compliance, and arrange funding. Everything it takes to go from \"interested\" to \"signed\".",
+    outcome: "From first meeting to signed contract in weeks, not years.",
   },
   {
     step: "03",
     title: "Deliver",
     description:
-      "We run the programme office and the sprint. Operators, developers, and decision-makers producing tested capability with a signed procurement pathway.",
-    outcome: "Capability delivered across borders, licences approved, supply chains secured.",
+      "We manage the project, run the tests, and coordinate across countries. Everyone in one room until the product works and the buyer is happy.",
+    outcome: "Working products delivered across borders with all approvals in place.",
   },
 ];
 

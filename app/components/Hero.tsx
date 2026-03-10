@@ -20,8 +20,8 @@ export default function Hero() {
           </h1>
 
           <p className="mt-8 max-w-lg text-lg leading-relaxed text-[#8A9BB5]">
-            Winsemius assembles cross-border defence consortia, runs programme
-            offices, and closes contracts — from Amsterdam.
+            We bring together the right companies, handle the paperwork,
+            and make sure defence projects actually get done. Based in Amsterdam.
           </p>
 
           <a

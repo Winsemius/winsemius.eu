@@ -5,16 +5,16 @@ import { useReveal } from "../hooks/useReveal";
 
 const audiences = [
   {
-    title: "For deep-tech SMEs",
-    text: "You have the technology. We give you the consortium, the contract vehicle, and access to procurement pipelines you cannot reach alone.",
+    title: "For small tech companies",
+    text: "You built something great but government procurement feels impossible. We connect you to the right partners, handle the paperwork, and get you in front of the buyers.",
   },
   {
-    title: "For primes & integrators",
-    text: "You need vetted local partners and compliant subcontracting structures. We assemble the ecosystem, negotiate the teaming agreement, and manage delivery.",
+    title: "For large defence companies",
+    text: "You need reliable local partners in other countries. We find them, check them out, set up the agreements, and manage the project so you don't have to.",
   },
   {
-    title: "For governments & MODs",
-    text: "You want innovation at speed. We deliver operator-validated capability with export licences approved and supply chains secured.",
+    title: "For governments",
+    text: "You want new technology that actually works. We put together the teams, test the products with real users, and deliver on time.",
   },
 ];
 
@@ -23,25 +23,25 @@ const team = [
     name: "Manny Winsemius",
     role: "Founder & Managing Director",
     image: "/guy_0.png",
-    detail: "Programme director and consortium architect across EU member states.",
+    detail: "Builds and runs defence partnerships across Europe.",
   },
   {
     name: "Team Member",
     role: "Strategy & Partnerships",
     image: "/guy_1.png",
-    detail: "Stakeholder alignment across government, industry, and research.",
+    detail: "Connects the dots between government, industry, and research.",
   },
   {
     name: "Team Member",
     role: "Operations & Delivery",
     image: "/guy_2.png",
-    detail: "Cross-border programme management from input to signed capability.",
+    detail: "Manages projects across borders from start to finish.",
   },
   {
     name: "Team Member",
     role: "Business Development",
     image: "/guy_3.png",
-    detail: "Ecosystem network from NATO institutions to early-stage ventures.",
+    detail: "Grows our network from NATO to early-stage startups.",
   },
 ];
 

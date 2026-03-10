@@ -7,19 +7,19 @@ const contrasts = [
     not: "Not advisors.",
     instead: "Operators.",
     detail:
-      "We sign contracts, run programmes, and take delivery risk. No reports without outcomes.",
+      "We don't write reports about what you should do. We do the work. Sign the contracts. Run the projects. Take responsibility for the result.",
   },
   {
     not: "Not a platform.",
     instead: "A partner.",
     detail:
-      "We work inside your structure, not above it. Single desk, no hand-offs, no duplication.",
+      "One team, one point of contact. We work with you, not above you. No bouncing between departments or getting lost in handoffs.",
   },
   {
     not: "Not generic.",
     instead: "Defence-native.",
     detail:
-      "Every engagement is grounded in procurement reality, operator needs, and cross-border complexity.",
+      "We know how defence procurement works. The rules, the timelines, the politics. That's all we do.",
   },
 ];
 
