@@ -7,7 +7,7 @@ const contrasts = [
     not: "Not advisors.",
     instead: "Operators.",
     detail:
-      "We don't write reports about what you should do. We do the work. Sign the contracts. Run the projects. Take responsibility for the result.",
+      "We're not on the side giving advice. We run the programme office, sign the contracts, and take responsibility for the result.",
   },
   {
     not: "Not a platform.",

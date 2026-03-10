@@ -5,16 +5,24 @@ import { useReveal } from "../hooks/useReveal";
 
 const audiences = [
   {
-    title: "For small tech companies",
-    text: "You built something great but government procurement feels impossible. We connect you to the right partners, handle the paperwork, and get you in front of the buyers.",
+    title: "For deep-tech SMEs",
+    text: "You built something great but defence procurement feels impossible. We connect you to the right partners, structure the contracts, and get your technology in front of the buyers.",
   },
   {
-    title: "For large defence companies",
-    text: "You need reliable local partners in other countries. We find them, check them out, set up the agreements, and manage the project so you don't have to.",
+    title: "For primes",
+    text: "You need reliable local partners in other countries. We find them, check them out, set up the teaming agreements, and manage the project so you don't have to.",
   },
   {
-    title: "For governments",
-    text: "You want new technology that actually works. We put together the teams, test the products with real users, and deliver on time.",
+    title: "For governments & defence",
+    text: "You want new technology that actually works. We put together the teams, test the products with real operators, and deliver on time.",
+  },
+  {
+    title: "For financiers",
+    text: "You want to invest in defence but need to understand the market. We help you find the right opportunities and connect you with the companies that are ready to scale.",
+  },
+  {
+    title: "For research organisations",
+    text: "You have the knowledge but need a path to deployment. We connect your research to industry partners and help turn results into funded programmes.",
   },
 ];
 
@@ -52,7 +60,7 @@ export default function Audience() {
     <section id="about" className="bg-sand py-32 md:py-40" ref={ref}>
       <div className="mx-auto max-w-6xl px-6">
         {/* Audience segments */}
-        <div className="grid gap-12 md:grid-cols-3 md:gap-16">
+        <div className="grid gap-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 md:gap-16">
           {audiences.map((a, i) => (
             <div key={a.title} className={`reveal stagger-${i + 1}`}>
               <h3 className="text-xs font-semibold tracking-[0.2em] text-accent uppercase">

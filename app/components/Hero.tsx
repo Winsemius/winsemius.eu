@@ -20,8 +20,8 @@ export default function Hero() {
           </h1>
 
           <p className="mt-8 max-w-lg text-lg leading-relaxed text-[#8A9BB5]">
-            We bring together the right companies, handle the paperwork,
-            and make sure defence projects actually get done. Based in Amsterdam.
+            We build defence partnerships, run the projects, write the contracts,
+            and deliver across borders. All from one desk in Amsterdam.
           </p>
 
           <a
