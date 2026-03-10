@@ -1,7 +1,10 @@
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
+import ImpactMetrics from "./components/ImpactMetrics";
 import About from "./components/About";
+import LogoStrip from "./components/LogoStrip";
 import Services from "./components/Services";
+import Team from "./components/Team";
 import Philosophy from "./components/Philosophy";
 import Insights from "./components/Insights";
 import Resources from "./components/Resources";
@@ -14,8 +17,11 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
+        <ImpactMetrics />
         <About />
+        <LogoStrip />
         <Services />
+        <Team />
         {/* Funding teaser */}
         <section className="bg-[#0f1729] py-20 text-center">
           <div className="mx-auto max-w-3xl px-6">

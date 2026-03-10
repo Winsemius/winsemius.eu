@@ -47,23 +47,16 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right: photos + for whom */}
+          {/* Right: for whom + group photo */}
           <div>
-            <div className="grid grid-cols-2 gap-4">
-              {[0, 1, 2, 3].map((i) => (
-                <div
-                  key={i}
-                  className={`overflow-hidden ${i % 2 === 1 ? "mt-6" : ""}`}
-                >
-                  <Image
-                    src={`/guy_${i}.png`}
-                    alt="Team member"
-                    width={300}
-                    height={300}
-                    className="h-48 w-full object-cover grayscale transition-all duration-500 hover:grayscale-0"
-                  />
-                </div>
-              ))}
+            <div className="overflow-hidden">
+              <Image
+                src="/four guys.png"
+                alt="Winsemius team"
+                width={600}
+                height={400}
+                className="h-72 w-full object-cover grayscale transition-all duration-500 hover:grayscale-0"
+              />
             </div>
 
             <div className="mt-12">
