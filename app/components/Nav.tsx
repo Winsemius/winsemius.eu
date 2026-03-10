@@ -5,11 +5,9 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "/funding", label: "Funding" },
-  { href: "#insights", label: "Insights" },
-  { href: "#resources", label: "Resources" },
+  { href: "#services", label: "How we work" },
+  { href: "#about", label: "Who we are" },
+  { href: "/funding", label: "EU Funding" },
 ];
 
 export default function Nav() {

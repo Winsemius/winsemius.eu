@@ -2,7 +2,7 @@
 
 @theme inline {
   --color-ink: #0A1628;
-  --color-ink-light: #162640;
+  --color-ink-light: #111D32;
   --color-sand: #F4F3F0;
   --color-stone: #E8E6E3;
   --color-warm: #d4ccc3;
@@ -35,11 +35,11 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
 }
 
-/* Scroll-triggered fade-up animation */
+/* Scroll-triggered reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.visible {
@@ -47,17 +47,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(0);
 }
 
-/* Stagger delays for grid children */
-.stagger-1 { transition-delay: 75ms; }
-.stagger-2 { transition-delay: 150ms; }
-.stagger-3 { transition-delay: 225ms; }
-.stagger-4 { transition-delay: 300ms; }
-.stagger-5 { transition-delay: 375ms; }
-
-/* Network mesh animation for hero */
-@keyframes drift {
-  0%, 100% { transform: translate(0, 0); }
-  25% { transform: translate(10px, -15px); }
-  50% { transform: translate(-5px, 10px); }
-  75% { transform: translate(15px, 5px); }
-}
+.stagger-1 { transition-delay: 100ms; }
+.stagger-2 { transition-delay: 200ms; }
+.stagger-3 { transition-delay: 300ms; }
+.stagger-4 { transition-delay: 400ms; }
