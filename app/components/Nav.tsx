@@ -9,7 +9,6 @@ const links = [
   { href: "/funding", label: "Funding" },
   { href: "#insights", label: "Insights" },
   { href: "#resources", label: "Resources" },
-  { href: "#contact", label: "Contact" },
 ];
 
 export default function Nav() {
@@ -40,17 +39,16 @@ export default function Nav() {
             className={`transition-all duration-300 ${scrolled ? "" : "brightness-0 invert"}`}
           />
           <span
-            className={`font-[var(--font-display)] text-lg font-light tracking-tight transition-colors duration-300 ${
+            className={`text-lg font-medium tracking-[-0.02em] transition-colors duration-300 ${
               scrolled ? "text-ink" : "text-white"
             }`}
-            style={{ fontFamily: "var(--font-display)" }}
           >
             Winsemius
           </span>
         </a>
 
         {/* Desktop nav */}
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-10 md:flex">
           {links.map((l) => (
             <li key={l.href}>
               <a
@@ -63,6 +61,18 @@ export default function Nav() {
               </a>
             </li>
           ))}
+          <li>
+            <a
+              href="#contact"
+              className={`text-sm font-medium tracking-wide transition-all duration-300 border px-5 py-2 ${
+                scrolled
+                  ? "border-accent text-accent hover:bg-accent hover:text-white"
+                  : "border-white/40 text-white hover:bg-white/10"
+              }`}
+            >
+              Contact
+            </a>
+          </li>
         </ul>
 
         {/* Mobile hamburger */}
@@ -93,7 +103,7 @@ export default function Nav() {
       {menuOpen && (
         <div className="border-t border-stone bg-white px-6 py-6 md:hidden">
           <ul className="flex flex-col gap-4">
-            {links.map((l) => (
+            {[...links, { href: "#contact", label: "Contact" }].map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}

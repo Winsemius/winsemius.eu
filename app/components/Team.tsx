@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useReveal } from "../hooks/useReveal";
 
 const team = [
   {
@@ -28,37 +31,33 @@ const team = [
 ];
 
 export default function Team() {
+  const ref = useReveal();
+
   return (
-    <section id="team" className="bg-white py-24 md:py-32">
+    <section id="team" className="bg-white py-28 md:py-36" ref={ref}>
       <div className="mx-auto max-w-6xl px-6">
-        <div className="text-center">
+        <div className="reveal text-center">
           <span className="text-xs font-semibold tracking-[0.2em] text-accent uppercase">
             Team
           </span>
-          <h2
-            className="mt-4 text-3xl font-light leading-snug tracking-tight md:text-4xl"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
+          <h2 className="mt-5 text-3xl font-medium leading-snug tracking-[-0.02em] md:text-4xl">
             The people behind the programme
           </h2>
         </div>
 
         <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {team.map((member) => (
-            <div key={member.name + member.role} className="group text-center">
-              <div className="mx-auto h-56 w-56 overflow-hidden rounded-full">
+          {team.map((member, i) => (
+            <div key={member.name + member.role} className={`reveal stagger-${i + 1} group`}>
+              <div className="aspect-[3/4] overflow-hidden">
                 <Image
                   src={member.image}
                   alt={member.name}
-                  width={224}
-                  height={224}
+                  width={300}
+                  height={400}
                   className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
                 />
               </div>
-              <h3
-                className="mt-6 text-lg font-normal text-ink"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
+              <h3 className="mt-5 text-base font-medium text-ink">
                 {member.name}
               </h3>
               <p className="mt-1 text-xs font-semibold tracking-[0.1em] text-accent uppercase">

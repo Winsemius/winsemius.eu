@@ -1,19 +1,21 @@
+"use client";
+
 import Image from "next/image";
+import { useReveal } from "../hooks/useReveal";
 
 export default function About() {
+  const ref = useReveal();
+
   return (
-    <section id="about" className="bg-sand py-24 md:py-32">
+    <section id="about" className="bg-sand py-28 md:py-36" ref={ref}>
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid gap-16 md:grid-cols-2 md:gap-20">
           {/* Left: text */}
-          <div>
+          <div className="reveal">
             <span className="text-xs font-semibold tracking-[0.2em] text-accent uppercase">
               About
             </span>
-            <h2
-              className="mt-4 text-3xl font-light leading-snug tracking-tight md:text-4xl"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
+            <h2 className="mt-5 text-3xl font-medium leading-snug tracking-[-0.02em] md:text-4xl">
               We don&apos;t coordinate the ecosystem.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-slate">
@@ -27,9 +29,7 @@ export default function About() {
             </p>
 
             <div className="mt-12 space-y-4">
-              <h3
-                className="text-xs font-semibold tracking-[0.2em] text-accent uppercase"
-              >
+              <h3 className="text-xs font-semibold tracking-[0.2em] text-accent uppercase">
                 Impact
               </h3>
               {[
@@ -48,7 +48,7 @@ export default function About() {
           </div>
 
           {/* Right: for whom + group photo */}
-          <div>
+          <div className="reveal stagger-1">
             <div className="overflow-hidden">
               <Image
                 src="/four guys.png"

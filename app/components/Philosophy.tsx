@@ -53,20 +53,15 @@ export default function Philosophy() {
   }, [current, goTo]);
 
   return (
-    <section className="bg-ink py-24 md:py-32">
+    <section className="bg-ink py-28 md:py-36">
       <div className="mx-auto max-w-4xl px-6 text-center">
         <div
           className={`transition-opacity duration-300 ${fading ? "opacity-0" : "opacity-100"}`}
         >
-          <blockquote
-            className="text-2xl font-light leading-snug tracking-tight text-white md:text-4xl md:leading-snug"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
+          <blockquote className="text-2xl font-medium leading-snug tracking-[-0.02em] text-white md:text-4xl md:leading-snug">
             {slides[current].headline}
           </blockquote>
-          <p className="mt-6 text-lg text-white/40 italic"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
+          <p className="mt-6 text-lg text-white/40 italic">
             {slides[current].subline}
           </p>
         </div>

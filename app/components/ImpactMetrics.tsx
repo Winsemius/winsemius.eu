@@ -29,7 +29,6 @@ function AnimatedCounter({
     const step = (now: number) => {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
-      // ease-out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
       setCount(Math.round(eased * target));
       if (progress < 1) frame = requestAnimationFrame(step);
@@ -68,22 +67,19 @@ export default function ImpactMetrics() {
   }, []);
 
   return (
-    <section ref={ref} className="border-y border-stone bg-white py-16">
+    <section ref={ref} className="border-y border-stone bg-white py-20">
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {metrics.map((m) => (
             <div key={m.label} className="text-center">
-              <p
-                className="text-4xl font-light text-ink md:text-5xl"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
+              <p className="text-4xl font-medium tracking-[-0.03em] text-ink md:text-5xl">
                 <AnimatedCounter
                   target={m.value}
                   suffix={m.suffix}
                   started={started}
                 />
               </p>
-              <p className="mt-2 text-[0.65rem] font-semibold tracking-[0.15em] text-slate uppercase">
+              <p className="mt-3 text-[0.65rem] font-semibold tracking-[0.15em] text-slate uppercase">
                 {m.label}
               </p>
             </div>

@@ -2,13 +2,13 @@
 
 @theme inline {
   --color-ink: #1a1a1a;
-  --color-sand: #f5f0eb;
-  --color-stone: #e8e2db;
+  --color-sand: #f3f1ed;
+  --color-stone: #e5e1dc;
   --color-warm: #d4ccc3;
   --color-slate: #6b6560;
-  --color-accent: #b49a6a;
-  --color-accent-dark: #96805a;
-  --font-display: "Merriweather", Georgia, serif;
+  --color-accent: #3d7aed;
+  --color-accent-dark: #2d63c9;
+  --font-display: "Inter", system-ui, -apple-system, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
 }
 
@@ -32,4 +32,31 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
+}
+
+/* Scroll-triggered fade-up animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for grid children */
+.stagger-1 { transition-delay: 75ms; }
+.stagger-2 { transition-delay: 150ms; }
+.stagger-3 { transition-delay: 225ms; }
+.stagger-4 { transition-delay: 300ms; }
+.stagger-5 { transition-delay: 375ms; }
+
+/* Network mesh animation for hero */
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(10px, -15px); }
+  50% { transform: translate(-5px, 10px); }
+  75% { transform: translate(15px, 5px); }
 }
