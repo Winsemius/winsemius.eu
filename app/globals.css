@@ -12,6 +12,8 @@
   --color-rule: #D4CEC5;
   --color-accent: #2563EB;
   --color-accent-hover: #1D4ED8;
+  --color-accent-light: #DBEAFE;
+  --color-accent-muted: #93C5FD;
   --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
 }
@@ -55,3 +57,21 @@ h1, h2, h3 {
 .stagger-3 { transition-delay: 300ms; }
 .stagger-4 { transition-delay: 400ms; }
 .stagger-5 { transition-delay: 500ms; }
+
+/* Constellation pulse animation for accent nodes */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* Slow floating animation for decorative elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Dot grid pattern utility */
+.dot-grid {
+  background-image: radial-gradient(circle, var(--color-stone) 1px, transparent 1px);
+  background-size: 24px 24px;
+}

@@ -56,7 +56,7 @@ export default function Insights() {
           {papers.map((p, i) => (
             <div
               key={i}
-              className={`reveal stagger-${i + 1} flex flex-col py-8 md:flex-row md:items-start md:gap-8 md:px-4 md:-mx-4`}
+              className={`reveal stagger-${i + 1} group flex flex-col py-8 md:flex-row md:items-start md:gap-8 md:px-4 md:-mx-4 border-l-2 border-transparent hover:border-accent transition-all duration-300 hover:pl-4`}
             >
               <span className="shrink-0 text-xs font-medium tracking-[0.1em] text-accent uppercase md:mt-1.5 md:w-32">
                 {p.tag}
@@ -69,9 +69,12 @@ export default function Insights() {
                   {p.summary}
                 </p>
               </div>
-              <span className="mt-4 shrink-0 text-xs font-medium tracking-[0.1em] text-muted uppercase md:mt-1.5 md:ml-auto">
-                {p.status}
-              </span>
+              <div className="mt-4 shrink-0 flex items-center gap-3 md:mt-1.5 md:ml-auto">
+                <span className="inline-flex items-center rounded-full bg-accent-light/50 px-3 py-1 text-xs font-medium tracking-[0.05em] text-accent uppercase">
+                  {p.status}
+                </span>
+                <span className="text-muted transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+              </div>
             </div>
           ))}
         </div>

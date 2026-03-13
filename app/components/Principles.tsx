@@ -39,7 +39,7 @@ export default function Principles() {
   const ref = useReveal();
 
   return (
-    <section id="principles" className="bg-paper py-24 md:py-32" ref={ref}>
+    <section id="principles" className="bg-gradient-to-b from-paper to-parchment py-24 md:py-32" ref={ref}>
       <div className="mx-auto max-w-5xl px-6">
         <div className="reveal">
           <h2 className="text-4xl font-bold tracking-[-0.04em] text-ink md:text-5xl">
@@ -50,16 +50,26 @@ export default function Principles() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+        {/* Decorative divider line with accent dot */}
+        <div className="mt-10 flex items-center">
+          <div className="h-px flex-1 bg-rule" />
+          <div className="mx-4 h-2 w-2 rounded-full bg-accent/30" />
+          <div className="h-px flex-1 bg-rule" />
+        </div>
+
+        <div className="mt-10 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {principles.map((p, i) => (
-            <div key={p.number} className={`reveal stagger-${(i % 5) + 1} border-l-2 border-accent pl-5`}>
+            <div
+              key={p.number}
+              className={`reveal stagger-${(i % 5) + 1} border-l-2 border-accent pl-5${i === 0 ? " md:col-span-2 lg:col-span-2" : ""}`}
+            >
               <span className="text-xs font-medium tracking-[0.1em] text-accent uppercase">
                 {p.number}
               </span>
-              <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-ink font-display">
+              <h3 className={`mt-3 font-semibold tracking-[-0.03em] text-ink font-display${i === 0 ? " text-2xl md:text-3xl" : " text-xl"}`}>
                 {p.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate">
+              <p className={`mt-3 leading-relaxed text-slate${i === 0 ? " text-base max-w-xl" : " text-sm"}`}>
                 {p.text}
               </p>
             </div>
