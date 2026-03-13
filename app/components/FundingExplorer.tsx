@@ -11,7 +11,7 @@ const segments = [
     description:
       "Projected aggregate defence spending across all 27 EU member states in 2025. Up 14% from 2024, driven by geopolitical urgency. 18 member states now meet or exceed the 2% GDP target.",
     value: 392,
-    color: "#5bb8f5",
+    color: "#2563EB",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
@@ -27,7 +27,7 @@ const segments = [
     description:
       "The flagship EU defence mobilisation plan combining national fiscal space unlocks, EU-level joint borrowing via SAFE, and EIB/EIF financing. Aims to mobilise €800B over a decade to close Europe's capability gaps.",
     value: 800,
-    color: "#e8a838",
+    color: "#D97706",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M4 20L20 4M14 4l6 6M4 20l6-6" />
@@ -43,7 +43,7 @@ const segments = [
     description:
       "Security Action For Europe — EU-backed loans at near-sovereign interest rates for collaborative defence procurement. Covers air & missile defence, ammunition, and strategic enablers like satellite comms.",
     value: 150,
-    color: "#5bb8f5",
+    color: "#2563EB",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <rect x="3" y="10" width="18" height="11" rx="1" />
@@ -123,7 +123,7 @@ function DonutChart({
         x={cx}
         y={cy - 8}
         textAnchor="middle"
-        className="fill-white text-[2rem] font-light"
+        className="fill-ink text-[2rem] font-light"
         style={{ fontFamily: "var(--font-display)" }}
       >
         €1,342B
@@ -132,7 +132,7 @@ function DonutChart({
         x={cx}
         y={cy + 18}
         textAnchor="middle"
-        className="fill-white/40 text-[0.55rem] font-semibold tracking-[0.15em]"
+        className="fill-slate text-[0.55rem] font-semibold tracking-[0.15em]"
       >
         TOTAL MOBILISED
       </text>
@@ -145,16 +145,16 @@ export default function FundingExplorer() {
   const seg = segments[active];
 
   return (
-    <section className="bg-[#0f1729] py-24 md:py-32">
+    <section className="bg-paper py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
         <div className="text-center">
           <h2
-            className="text-3xl font-light leading-snug tracking-tight text-white md:text-4xl"
+            className="text-3xl font-light leading-snug tracking-tight text-ink md:text-4xl"
             style={{ fontFamily: "var(--font-display)" }}
           >
             EU Defence Funding Explorer
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-sm text-white/40">
+          <p className="mx-auto mt-4 max-w-lg text-sm text-slate">
             Click any segment to explore the scale and purpose of each funding
             mechanism.
           </p>
@@ -167,28 +167,28 @@ export default function FundingExplorer() {
           </div>
 
           {/* Info panel */}
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
+          <div className="rounded-2xl border border-rule bg-parchment p-8">
             <div className="mb-4" style={{ color: seg.color }}>
               {seg.icon}
             </div>
             <h3
-              className="text-xl font-normal text-white"
+              className="text-xl font-normal text-ink"
               style={{ fontFamily: "var(--font-display)" }}
             >
               {seg.label}
             </h3>
-            <p className="mt-4 text-sm leading-relaxed text-white/50">
+            <p className="mt-4 text-sm leading-relaxed text-slate">
               {seg.description}
             </p>
 
-            <div className="mt-6 rounded-xl bg-white/5 px-6 py-5 text-center">
+            <div className="mt-6 rounded-xl bg-paper px-6 py-5 text-center">
               <p
                 className="text-3xl font-light md:text-4xl"
                 style={{ color: seg.color, fontFamily: "var(--font-display)" }}
               >
                 {seg.amount}
               </p>
-              <p className="mt-1 text-[0.65rem] font-semibold tracking-[0.12em] text-white/30">
+              <p className="mt-1 text-[0.65rem] font-semibold tracking-[0.12em] text-muted">
                 {seg.amountLabel}
               </p>
             </div>

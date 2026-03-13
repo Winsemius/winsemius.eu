@@ -15,7 +15,6 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isDarkPage = pathname === "/funding";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -43,18 +42,6 @@ export default function Nav() {
     [pathname]
   );
 
-  // On dark pages (funding), use light text; on light pages, use dark text
-  const textColor = isDarkPage
-    ? scrolled ? "text-ink" : "text-white/80"
-    : "text-slate";
-  const textHover = isDarkPage
-    ? scrolled ? "hover:text-ink" : "hover:text-white"
-    : "hover:text-ink";
-  const logoFilter = isDarkPage && !scrolled ? "brightness-0 invert" : "";
-  const nameColor = isDarkPage
-    ? scrolled ? "text-ink" : "text-white"
-    : "text-ink";
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -79,9 +66,9 @@ export default function Nav() {
             alt="Winsemius"
             width={40}
             height={17}
-            className={`transition-all duration-300 ${logoFilter}`}
+            className="transition-all duration-300"
           />
-          <span className={`font-display text-xl tracking-[-0.01em] transition-colors duration-300 ${nameColor}`}>
+          <span className="font-display text-xl tracking-[-0.01em] transition-colors duration-300 text-ink">
             Winsemius
           </span>
         </a>
@@ -93,7 +80,7 @@ export default function Nav() {
               <a
                 href={l.href}
                 onClick={(e) => handleClick(e, l.href)}
-                className={`text-sm transition-colors duration-200 ${textColor} ${textHover}`}
+                className="text-sm transition-colors duration-200 text-slate hover:text-ink"
               >
                 {l.label}
               </a>
@@ -104,7 +91,7 @@ export default function Nav() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className={`md:hidden text-sm transition-colors duration-200 ${textColor}`}
+          className="md:hidden text-sm transition-colors duration-200 text-slate"
           aria-label="Toggle menu"
         >
           {menuOpen ? "Close" : "Menu"}

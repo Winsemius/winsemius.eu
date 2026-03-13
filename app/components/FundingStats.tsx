@@ -14,12 +14,12 @@ const euStats = [
 
 export default function FundingStats() {
   return (
-    <section className="bg-[#0f1729]">
+    <section className="bg-parchment">
       {/* Netherlands Defence Spending */}
       <div className="mx-auto max-w-6xl px-6 py-16">
-        <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-6 py-10 md:px-12">
+        <div className="rounded-2xl border border-rule bg-paper px-6 py-10 md:px-12">
           <h3
-            className="text-center text-xl font-normal text-white/80 md:text-2xl"
+            className="text-center text-xl font-normal text-ink md:text-2xl"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Netherlands Defence Spending
@@ -28,12 +28,12 @@ export default function FundingStats() {
             {nlStats.map((s) => (
               <div key={s.label} className="text-center">
                 <p
-                  className="text-2xl font-light text-white md:text-3xl"
+                  className="text-2xl font-light text-ink md:text-3xl"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {s.value}
                 </p>
-                <p className="mt-2 text-[0.6rem] font-semibold tracking-[0.1em] text-white/30 uppercase">
+                <p className="mt-2 text-[0.6rem] font-semibold tracking-[0.1em] text-muted uppercase">
                   {s.label}
                 </p>
               </div>
@@ -44,17 +44,17 @@ export default function FundingStats() {
 
       {/* EU Industry Stats */}
       <div className="mx-auto max-w-6xl px-6 py-12">
-        <div className="border-t border-white/10 pt-12">
+        <div className="border-t border-rule pt-12">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {euStats.map((s) => (
               <div key={s.label} className="text-center">
                 <p
-                  className="text-2xl font-light text-[#5bb8f5] md:text-3xl"
+                  className="text-2xl font-light text-accent md:text-3xl"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {s.value}
                 </p>
-                <p className="mt-2 text-[0.6rem] font-semibold tracking-[0.1em] text-white/30 uppercase">
+                <p className="mt-2 text-[0.6rem] font-semibold tracking-[0.1em] text-muted uppercase">
                   {s.label}
                 </p>
               </div>
@@ -65,9 +65,9 @@ export default function FundingStats() {
 
       {/* CTA */}
       <div className="mx-auto max-w-6xl px-6 pb-24 pt-12">
-        <div className="border-t border-white/10 pt-16 text-center">
+        <div className="border-t border-rule pt-16 text-center">
           <p
-            className="mx-auto max-w-2xl text-xl font-light italic text-white/60 md:text-2xl"
+            className="mx-auto max-w-2xl text-xl font-light italic text-slate md:text-2xl"
             style={{ fontFamily: "var(--font-display)" }}
           >
             The funding is there. The question is whether you are positioned to
@@ -75,7 +75,7 @@ export default function FundingStats() {
           </p>
           <a
             href="mailto:info@winsemius.eu?subject=Funding%20Positioning"
-            className="mt-8 inline-block rounded-full bg-[#e8a838] px-10 py-4 text-sm font-semibold tracking-wide text-white transition-all hover:bg-[#d49a2e] hover:shadow-lg hover:shadow-[#e8a838]/20"
+            className="mt-8 inline-block rounded-full bg-accent px-10 py-4 text-sm font-semibold tracking-wide text-white transition-all hover:bg-accent-hover hover:shadow-lg hover:shadow-accent/20"
           >
             Let&apos;s Talk Positioning
           </a>

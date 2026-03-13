@@ -20,7 +20,7 @@ const cards: CardData[] = [
     detailLabel: "REARM EUROPE DETAILS",
     detail:
       "The landmark plan combines national fiscal space unlocks, EU-level joint borrowing, and EIB/EIF financing to mobilise €800B over a decade. Member states can exempt defence spending from fiscal rules, encouraging rapid scale-up.",
-    color: "#e8a838",
+    color: "#D97706",
   },
   {
     label: "SAFE LOANS FACILITY",
@@ -30,7 +30,7 @@ const cards: CardData[] = [
     detailLabel: "SAFE LOANS DETAILS",
     detail:
       "Security Action For Europe (SAFE) provides EU-backed loans at near-sovereign rates for collaborative procurement of air & missile defence, ammunition, and strategic enablers. Minimum two member states per application.",
-    color: "#5bb8f5",
+    color: "#2563EB",
   },
   {
     label: "EU-27 DEFENCE SPENDING",
@@ -40,7 +40,7 @@ const cards: CardData[] = [
     detailLabel: "SPENDING TREND",
     detail:
       "EU-27 defence spending has grown every year since 2014, accelerating sharply post-2022. The 2025 projection of €392B represents a 14% YoY increase, with 18 member states now meeting or exceeding the 2% GDP target.",
-    color: "#4ade80",
+    color: "#059669",
   },
   {
     label: "DEFENCE INVESTMENT GROWTH",
@@ -50,7 +50,7 @@ const cards: CardData[] = [
     detailLabel: "INVESTMENT BREAKDOWN",
     detail:
       "Equipment procurement surged 42% in 2024, driven by urgent needs in air defence, ammunition, and armoured vehicles. R&D spending grew 28%, with a strong push toward autonomous systems and space capabilities.",
-    color: "#e8a838",
+    color: "#D97706",
   },
   {
     label: "EUROPEAN DEFENCE FUND 2026",
@@ -59,7 +59,7 @@ const cards: CardData[] = [
     detailLabel: "EDF DETAILS",
     detail:
       "The EDF co-finances collaborative R&D and capability development with 75\u2013100% EU funding rates. Priority areas: CBRN, cyber, space, maritime, and next-gen land systems. Requires consortia from at least 3 member states.",
-    color: "#5bb8f5",
+    color: "#2563EB",
   },
   {
     label: "EDIP GRANTS",
@@ -69,7 +69,7 @@ const cards: CardData[] = [
     detailLabel: "EDIP DETAILS",
     detail:
       "The European Defence Industrial Programme targets production ramp-up, supply chain resilience, and strategic stockpiling. Focus on SME participation and reducing dependency on non-EU suppliers for critical components.",
-    color: "#4ade80",
+    color: "#059669",
   },
 ];
 
@@ -91,7 +91,7 @@ function FlipCard({ card }: { card: CardData }) {
       >
         {/* Front */}
         <div
-          className="w-full rounded-2xl border bg-white/5 p-6 text-left transition-colors hover:bg-white/[0.07]"
+          className="w-full rounded-2xl border bg-paper p-6 text-left transition-colors hover:bg-parchment"
           style={{
             backfaceVisibility: "hidden",
             borderColor: `color-mix(in srgb, ${card.color} 25%, transparent)`,
@@ -104,19 +104,19 @@ function FlipCard({ card }: { card: CardData }) {
             {card.label}
           </p>
           <p
-            className="mt-2 text-3xl font-light text-white md:text-4xl"
+            className="mt-2 text-3xl font-light text-ink md:text-4xl"
             style={{ fontFamily: "var(--font-display)" }}
           >
             {card.amount}
           </p>
-          <p className="mt-2 text-sm leading-relaxed text-white/40">
+          <p className="mt-2 text-sm leading-relaxed text-slate">
             {card.summary}
           </p>
         </div>
 
         {/* Back */}
         <div
-          className="absolute inset-0 w-full rounded-2xl border bg-white/5 p-6 text-left"
+          className="absolute inset-0 w-full rounded-2xl border bg-paper p-6 text-left"
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
@@ -129,10 +129,10 @@ function FlipCard({ card }: { card: CardData }) {
           >
             {card.detailLabel}
           </p>
-          <p className="mt-3 text-sm leading-relaxed text-white/60">
+          <p className="mt-3 text-sm leading-relaxed text-slate">
             {card.detail}
           </p>
-          <p className="mt-4 text-[0.6rem] font-semibold tracking-[0.1em] text-white/25 uppercase">
+          <p className="mt-4 text-[0.6rem] font-semibold tracking-[0.1em] text-muted uppercase">
             Click to flip back &#x21BB;
           </p>
         </div>
@@ -143,16 +143,16 @@ function FlipCard({ card }: { card: CardData }) {
 
 export default function FundingLandscape() {
   return (
-    <section className="bg-[#0f1729] py-24 md:py-32">
+    <section className="bg-parchment py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
         <div className="text-center">
           <h2
-            className="text-3xl font-light leading-snug tracking-tight text-white md:text-4xl"
+            className="text-3xl font-light leading-snug tracking-tight text-ink md:text-4xl"
             style={{ fontFamily: "var(--font-display)" }}
           >
             The EU Defence Funding Landscape
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-sm text-white/40">
+          <p className="mx-auto mt-4 max-w-lg text-sm text-slate">
             Europe is mobilising unprecedented capital for defence. The
             opportunity window is now.
           </p>

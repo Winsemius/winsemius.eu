@@ -52,14 +52,14 @@ function BarChart({
   gradientBars?: boolean;
 }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-5 md:p-6">
+    <div className="rounded-2xl border border-rule bg-parchment p-5 md:p-6">
       <h3
-        className="text-center text-base font-normal text-white"
+        className="text-center text-base font-normal text-ink"
         style={{ fontFamily: "var(--font-display)" }}
       >
         {title}
       </h3>
-      <p className="mt-1 text-center text-[0.55rem] font-semibold tracking-[0.1em] text-white/30 uppercase">
+      <p className="mt-1 text-center text-[0.55rem] font-semibold tracking-[0.1em] text-muted uppercase">
         {subtitle}
       </p>
 
@@ -71,7 +71,7 @@ function BarChart({
             .map((v) => (
               <span
                 key={v}
-                className="text-[0.5rem] leading-none text-white/25"
+                className="text-[0.5rem] leading-none text-muted"
               >
                 {prefix}
                 {v}
@@ -87,13 +87,13 @@ function BarChart({
           {data.map((d, i) => {
             const heightPct = (d.value / maxVal) * 100;
             const isLast = i === data.length - 1;
-            let bg = barColor || "#5bb8f5";
-            if (lastBarHighlight && isLast) bg = "#e8a838";
+            let bg = barColor || "#2563EB";
+            if (lastBarHighlight && isLast) bg = "#D97706";
             if (gradientBars) {
               const hue = 190 + (i / (data.length - 1)) * 40;
-              const lightness = 55 + (i / (data.length - 1)) * 15;
+              const lightness = 35 + (i / (data.length - 1)) * 15;
               bg = `hsl(${hue}, 70%, ${lightness}%)`;
-              if (isLast) bg = "#e8c838";
+              if (isLast) bg = "#D97706";
             }
             return (
               <div
@@ -106,7 +106,7 @@ function BarChart({
                     style={{ height: `${heightPct}%`, background: bg }}
                   />
                 </div>
-                <span className="text-[0.5rem] text-white/35">{d.year}</span>
+                <span className="text-[0.5rem] text-muted">{d.year}</span>
               </div>
             );
           })}
@@ -143,14 +143,14 @@ function LineChart() {
   const gridYValues = [0, 5, 10, 15, 20, 25];
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-5 md:p-6">
+    <div className="rounded-2xl border border-rule bg-parchment p-5 md:p-6">
       <h3
-        className="text-center text-base font-normal text-white"
+        className="text-center text-base font-normal text-ink"
         style={{ fontFamily: "var(--font-display)" }}
       >
         Year-on-Year Growth
       </h3>
-      <p className="mt-1 text-center text-[0.55rem] font-semibold tracking-[0.1em] text-white/30 uppercase">
+      <p className="mt-1 text-center text-[0.55rem] font-semibold tracking-[0.1em] text-muted uppercase">
         Annual % change in total defence spending, 2020–2025
       </p>
 
@@ -166,14 +166,14 @@ function LineChart() {
                   y1={y}
                   x2={chartW - padR}
                   y2={y}
-                  stroke="rgba(255,255,255,0.06)"
+                  stroke="rgba(0,0,0,0.06)"
                   strokeWidth="0.5"
                 />
                 <text
                   x={padL - 4}
                   y={y + 3}
                   textAnchor="end"
-                  className="fill-white/25 text-[6px]"
+                  className="fill-muted text-[6px]"
                 >
                   {v}%
                 </text>
@@ -182,13 +182,13 @@ function LineChart() {
           })}
 
           {/* Area fill */}
-          <path d={areaPath} fill="rgba(232,168,56,0.1)" />
+          <path d={areaPath} fill="rgba(217,119,6,0.1)" />
 
           {/* Line */}
           <path
             d={linePath}
             fill="none"
-            stroke="#e8a838"
+            stroke="#D97706"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -201,8 +201,8 @@ function LineChart() {
               cx={p.x}
               cy={p.y}
               r="4"
-              fill="#0f1729"
-              stroke="#e8a838"
+              fill="#F2EDE7"
+              stroke="#D97706"
               strokeWidth="2"
             />
           ))}
@@ -214,7 +214,7 @@ function LineChart() {
               x={p.x}
               y={chartH - 5}
               textAnchor="middle"
-              className="fill-white/35 text-[6px]"
+              className="fill-muted text-[6px]"
             >
               {p.label}
             </text>
@@ -227,7 +227,7 @@ function LineChart() {
 
 export default function FundingCharts() {
   return (
-    <section className="bg-[#0f1729] py-16 md:py-24">
+    <section className="bg-paper py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid gap-5 md:grid-cols-3">
           <BarChart
