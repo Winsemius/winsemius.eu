@@ -75,6 +75,15 @@ export default function Principles() {
             </div>
           ))}
         </div>
+
+        <div className="reveal stagger-5 mt-14">
+          <a
+            href="/principles"
+            className="inline-flex items-center gap-2 text-base font-medium text-accent transition-colors hover:text-accent-hover"
+          >
+            Read our full policy framework&thinsp;&rarr;
+          </a>
+        </div>
       </div>
     </section>
   );
