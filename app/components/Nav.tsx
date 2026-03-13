@@ -5,16 +5,17 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const links = [
-  { href: "#services", label: "What we do" },
+  { href: "#principles", label: "Principles" },
   { href: "#insights", label: "Insights" },
   { href: "/funding", label: "Funding" },
-  { href: "#about", label: "Who we work with" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const isDarkPage = pathname === "/funding";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -28,7 +29,6 @@ export default function Nav() {
         e.preventDefault();
         setMenuOpen(false);
 
-        // If we're not on the homepage, navigate there first
         if (pathname !== "/") {
           window.location.href = "/" + href;
           return;
@@ -43,15 +43,27 @@ export default function Nav() {
     [pathname]
   );
 
+  // On dark pages (funding), use light text; on light pages, use dark text
+  const textColor = isDarkPage
+    ? scrolled ? "text-ink" : "text-white/80"
+    : "text-slate";
+  const textHover = isDarkPage
+    ? scrolled ? "hover:text-ink" : "hover:text-white"
+    : "hover:text-ink";
+  const logoFilter = isDarkPage && !scrolled ? "brightness-0 invert" : "";
+  const nameColor = isDarkPage
+    ? scrolled ? "text-ink" : "text-white"
+    : "text-ink";
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-sm shadow-sm"
+          ? "bg-paper/95 backdrop-blur-sm border-b border-rule"
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
         <a
           href="/"
           className="flex items-center gap-3"
@@ -65,15 +77,11 @@ export default function Nav() {
           <Image
             src="/logobrilonly.svg"
             alt="Winsemius"
-            width={48}
-            height={20}
-            className={`transition-all duration-300 ${scrolled ? "" : "brightness-0 invert"}`}
+            width={40}
+            height={17}
+            className={`transition-all duration-300 ${logoFilter}`}
           />
-          <span
-            className={`text-lg font-medium tracking-[-0.02em] transition-colors duration-300 ${
-              scrolled ? "text-ink" : "text-white"
-            }`}
-          >
+          <span className={`font-serif text-xl tracking-[-0.01em] transition-colors duration-300 ${nameColor}`}>
             Winsemius
           </span>
         </a>
@@ -85,63 +93,34 @@ export default function Nav() {
               <a
                 href={l.href}
                 onClick={(e) => handleClick(e, l.href)}
-                className={`text-sm font-medium tracking-wide transition-colors duration-300 hover:opacity-70 ${
-                  scrolled ? "text-ink" : "text-white/90"
-                }`}
+                className={`text-sm transition-colors duration-200 ${textColor} ${textHover}`}
               >
                 {l.label}
               </a>
             </li>
           ))}
-          <li>
-            <a
-              href="#contact"
-              onClick={(e) => handleClick(e, "#contact")}
-              className={`text-sm font-medium tracking-wide transition-all duration-300 border px-5 py-2 ${
-                scrolled
-                  ? "border-accent text-accent hover:bg-accent hover:text-white"
-                  : "border-white/40 text-white hover:bg-white/10"
-              }`}
-            >
-              Contact
-            </a>
-          </li>
         </ul>
 
         {/* Mobile hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="flex flex-col gap-1.5 md:hidden"
+          className={`md:hidden text-sm transition-colors duration-200 ${textColor}`}
           aria-label="Toggle menu"
         >
-          <span
-            className={`block h-0.5 w-6 transition-all duration-300 ${
-              scrolled ? "bg-ink" : "bg-white"
-            } ${menuOpen ? "translate-y-2 rotate-45" : ""}`}
-          />
-          <span
-            className={`block h-0.5 w-6 transition-all duration-300 ${
-              scrolled ? "bg-ink" : "bg-white"
-            } ${menuOpen ? "opacity-0" : ""}`}
-          />
-          <span
-            className={`block h-0.5 w-6 transition-all duration-300 ${
-              scrolled ? "bg-ink" : "bg-white"
-            } ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`}
-          />
+          {menuOpen ? "Close" : "Menu"}
         </button>
       </nav>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="border-t border-stone bg-white px-6 py-6 md:hidden">
+        <div className="border-t border-rule bg-paper px-6 py-6 md:hidden">
           <ul className="flex flex-col gap-4">
-            {[...links, { href: "#contact", label: "Contact" }].map((l) => (
+            {links.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
                   onClick={(e) => handleClick(e, l.href)}
-                  className="text-base font-medium text-ink"
+                  className="text-base text-ink"
                 >
                   {l.label}
                 </a>

@@ -6,27 +6,21 @@ export default function Contact() {
   const ref = useReveal();
 
   return (
-    <section id="contact" className="bg-ink py-32 md:py-40" ref={ref}>
-      <div className="mx-auto max-w-4xl px-6">
-        <div className="reveal text-center">
-          <h2 className="text-3xl font-semibold tracking-[-0.03em] text-white md:text-5xl">
-            Want to talk defence policy?
+    <section id="contact" className="bg-paper py-24 md:py-32 border-t border-rule" ref={ref}>
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="reveal">
+          <h2 className="text-4xl tracking-[-0.02em] text-ink md:text-5xl">
+            Get in touch
           </h2>
-          <p className="mt-6 text-lg text-[#8A9BB5]">
-            We are always interested in a good conversation.
+          <p className="mt-4 text-base text-slate">
+            We prefer conversations over contact forms.
           </p>
-          <a
-            href="mailto:info@winsemius.eu"
-            className="mt-10 inline-block bg-accent px-10 py-4 text-sm font-medium tracking-widest text-white uppercase transition-all hover:bg-accent-dark hover:shadow-lg hover:shadow-accent/20"
-          >
-            Send us an email
-          </a>
         </div>
 
-        <div className="reveal stagger-1 mt-20 flex flex-col items-center gap-6 text-center text-sm text-[#8A9BB5] md:flex-row md:justify-center md:gap-12 md:text-left">
+        <div className="reveal stagger-1 mt-12 flex flex-col gap-6 text-base sm:flex-row sm:gap-12">
           <a
             href="mailto:info@winsemius.eu"
-            className="transition-colors hover:text-white"
+            className="text-ink underline underline-offset-4 decoration-rule hover:decoration-accent transition-colors"
           >
             info@winsemius.eu
           </a>
@@ -34,16 +28,22 @@ export default function Contact() {
             href="https://www.linkedin.com/company/winsemius-group/"
             target="_blank"
             rel="noopener noreferrer"
-            className="transition-colors hover:text-white"
+            className="text-ink underline underline-offset-4 decoration-rule hover:decoration-accent transition-colors"
           >
             LinkedIn
           </a>
           <a
             href="https://signal.group/#CjQKIGjxYpDyXsAfW-Xj7lU4FOce1zteQL9-pEY5s5VOh6I3EhAlavSFr0XTHu3jaLrPdc5k"
-            className="transition-colors hover:text-white"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-ink underline underline-offset-4 decoration-rule hover:decoration-accent transition-colors"
           >
             Signal
           </a>
+        </div>
+
+        <div className="reveal stagger-2 mt-10 text-sm text-muted">
+          <p>Hillegomstraat 7-H, 1058 LN Amsterdam</p>
         </div>
       </div>
     </section>

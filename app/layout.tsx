@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Winsemius Group — Defence Policy & Funding Strategy",
+  title: "Winsemius Group — Defence Technology, Industrial Policy & Capital",
   description:
-    "Policy influence, funding strategy, and coalition building for European defence. Based in Amsterdam.",
+    "At the intersection of defence technology, industrial policy, and capital markets. Policy influence, funding strategy, and coalition building for European defence.",
   openGraph: {
-    title: "Winsemius Group — Defence Policy & Funding Strategy",
+    title: "Winsemius Group — Defence Technology, Industrial Policy & Capital",
     description:
-      "We write the policy, shape the funding strategies, and build the coalitions that turn European defence ideas into funded programmes.",
+      "At the intersection of defence technology, industrial policy, and capital markets. Policy influence, funding strategy, and coalition building for European defence.",
     url: "https://winsemius.eu",
     siteName: "Winsemius Group",
     type: "website",
@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap"
           rel="stylesheet"
         />
         <link rel="icon" href="/favicon.ico" />
@@ -43,7 +43,7 @@ export default function RootLayout({
               url: "https://winsemius.eu",
               logo: "https://winsemius.eu/logobrilonly.svg",
               description:
-                "Policy influence, funding strategy, and coalition building for European defence.",
+                "At the intersection of defence technology, industrial policy, and capital markets. Policy influence, funding strategy, and coalition building.",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Hillegomstraat 7-H",

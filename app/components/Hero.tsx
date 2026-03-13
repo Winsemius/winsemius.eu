@@ -1,39 +1,36 @@
-import Image from "next/image";
-
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center bg-ink">
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-32">
+    <section className="relative flex min-h-[90vh] items-end bg-paper pb-24 pt-32 md:pb-32">
+      <div className="mx-auto w-full max-w-5xl px-6">
         <div className="max-w-3xl">
-          <Image
-            src="/logobrilonly.svg"
-            alt="Winsemius Group"
-            width={48}
-            height={20}
-            className="mb-12 brightness-0 invert opacity-40"
-          />
-
-          <h1 className="text-5xl font-semibold leading-[1.08] tracking-[-0.035em] text-white md:text-7xl">
-            Defence policy
-            <br />
-            that moves.
-          </h1>
-
-          <p className="mt-8 max-w-lg text-lg leading-relaxed text-[#8A9BB5]">
-            We write the policy, shape the funding strategies, and build the
-            coalitions that turn European defence ideas into funded programmes.
+          <p className="text-sm tracking-[0.15em] text-muted uppercase mb-8">
+            Defence &middot; Industrial Policy &middot; Capital
           </p>
 
-          <a
-            href="#contact"
-            className="mt-12 inline-block bg-accent px-8 py-4 text-sm font-medium tracking-widest text-white uppercase transition-all hover:bg-accent-dark"
-          >
-            Get in touch
-          </a>
+          <h1 className="text-5xl leading-[1.08] tracking-[-0.02em] text-ink md:text-7xl lg:text-8xl">
+            The broker between
+            <br />
+            <em className="italic">policy, industry,</em>
+            <br />
+            and capital.
+          </h1>
+
+          <p className="mt-10 max-w-xl text-lg leading-relaxed text-slate md:text-xl">
+            Winsemius Group works at the intersection of defence technology,
+            industrial policy, and capital markets. We build the coalitions,
+            structure the funding, and shape the procurement frameworks that
+            turn European defence ambition into operational capability.
+          </p>
+        </div>
+
+        <div className="mt-20 border-t border-rule pt-6 flex flex-col gap-2 sm:flex-row sm:gap-8 text-sm text-muted">
+          <span>Amsterdam</span>
+          <span className="hidden sm:inline">&middot;</span>
+          <span>Est. 2024</span>
+          <span className="hidden sm:inline">&middot;</span>
+          <span>JEF &middot; Baltic &middot; Northern Flank</span>
         </div>
       </div>
-
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-ink-light to-transparent" />
     </section>
   );
 }

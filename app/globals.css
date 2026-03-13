@@ -1,15 +1,18 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-ink: #0A1628;
-  --color-ink-light: #111D32;
-  --color-sand: #F4F3F0;
-  --color-stone: #E8E6E3;
-  --color-warm: #d4ccc3;
-  --color-slate: #4A4A5A;
-  --color-accent: #3d7aed;
-  --color-accent-dark: #2d63c9;
-  --font-display: "Inter", system-ui, -apple-system, sans-serif;
+  --color-ink: #1a1a1a;
+  --color-ink-light: #2d2d2d;
+  --color-paper: #FAF8F5;
+  --color-parchment: #F2EDE7;
+  --color-stone: #E0DAD1;
+  --color-warm: #C8BFB3;
+  --color-slate: #5C5C5C;
+  --color-muted: #8A8478;
+  --color-rule: #D4CEC5;
+  --color-accent: #8B4513;
+  --color-accent-hover: #6D3610;
+  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
 }
 
@@ -23,7 +26,7 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--color-ink);
-  background: #fff;
+  background: var(--color-paper);
 }
 
 ::selection {
@@ -31,8 +34,8 @@ body {
   color: white;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
+h1, h2, h3 {
+  font-family: var(--font-serif);
 }
 
 /* Scroll-triggered reveal */

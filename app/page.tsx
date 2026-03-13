@@ -1,8 +1,9 @@
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
-import WhatWeDo from "./components/WhatWeDo";
+import Thesis from "./components/Thesis";
+import Principles from "./components/Principles";
 import Insights from "./components/Insights";
-import Audience from "./components/Audience";
+import FundingSection from "./components/FundingSection";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
@@ -12,9 +13,10 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <WhatWeDo />
+        <Thesis />
+        <Principles />
         <Insights />
-        <Audience />
+        <FundingSection />
         <Contact />
       </main>
       <Footer />
