@@ -42,22 +42,21 @@ export default function Principles() {
     <section id="principles" className="bg-paper py-24 md:py-32" ref={ref}>
       <div className="mx-auto max-w-5xl px-6">
         <div className="reveal">
-          <h2 className="text-4xl tracking-[-0.02em] text-ink md:text-5xl">
-            Working principles
+          <h2 className="text-4xl font-bold tracking-[-0.04em] text-ink md:text-5xl">
+            How we think
           </h2>
           <p className="mt-4 text-base text-slate max-w-2xl">
-            The positions that guide our work. Each informs how we structure
-            funding, assemble coalitions, and advise on procurement.
+            The positions behind our work.
           </p>
         </div>
 
         <div className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {principles.map((p, i) => (
-            <div key={p.number} className={`reveal stagger-${(i % 5) + 1}`}>
+            <div key={p.number} className={`reveal stagger-${(i % 5) + 1} border-l-2 border-accent pl-5`}>
               <span className="text-xs font-medium tracking-[0.1em] text-accent uppercase">
                 {p.number}
               </span>
-              <h3 className="mt-3 text-xl tracking-[-0.01em] text-ink font-serif">
+              <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-ink font-display">
                 {p.title}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-slate">

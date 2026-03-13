@@ -44,12 +44,11 @@ export default function Insights() {
     <section id="insights" className="bg-parchment py-24 md:py-32" ref={ref}>
       <div className="mx-auto max-w-5xl px-6">
         <div className="reveal">
-          <h2 className="text-4xl tracking-[-0.02em] text-ink md:text-5xl">
+          <h2 className="text-4xl font-bold tracking-[-0.04em] text-ink md:text-5xl">
             Insights
           </h2>
           <p className="mt-4 text-base text-slate max-w-xl">
-            Policy papers, analysis, and briefs on European defence procurement,
-            funding instruments, and industrial strategy.
+            Our positions on European defence policy and funding.
           </p>
         </div>
 
@@ -63,7 +62,7 @@ export default function Insights() {
                 {p.tag}
               </span>
               <div className="mt-2 md:mt-0 flex-1">
-                <h3 className="text-xl tracking-[-0.01em] text-ink font-serif md:text-2xl">
+                <h3 className="text-xl font-semibold tracking-[-0.03em] text-ink font-display md:text-2xl">
                   {p.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate max-w-2xl">

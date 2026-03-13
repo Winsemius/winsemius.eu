@@ -10,9 +10,9 @@
   --color-slate: #5C5C5C;
   --color-muted: #8A8478;
   --color-rule: #D4CEC5;
-  --color-accent: #8B4513;
-  --color-accent-hover: #6D3610;
-  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --color-accent: #2563EB;
+  --color-accent-hover: #1D4ED8;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
 }
 
@@ -35,7 +35,7 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
 }
 
 /* Scroll-triggered reveal */

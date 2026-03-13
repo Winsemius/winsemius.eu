@@ -9,7 +9,7 @@ export default function Contact() {
     <section id="contact" className="bg-paper py-24 md:py-32 border-t border-rule" ref={ref}>
       <div className="mx-auto max-w-5xl px-6">
         <div className="reveal">
-          <h2 className="text-4xl tracking-[-0.02em] text-ink md:text-5xl">
+          <h2 className="text-4xl font-bold tracking-[-0.04em] text-ink md:text-5xl">
             Get in touch
           </h2>
           <p className="mt-4 text-base text-slate">

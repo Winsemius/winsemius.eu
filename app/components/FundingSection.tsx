@@ -9,7 +9,7 @@ export default function FundingSection() {
     <section className="bg-paper py-24 md:py-32 border-t border-rule" ref={ref}>
       <div className="mx-auto max-w-5xl px-6">
         <div className="reveal max-w-2xl">
-          <h2 className="text-4xl tracking-[-0.02em] text-ink md:text-5xl">
+          <h2 className="text-4xl font-bold tracking-[-0.04em] text-ink md:text-5xl">
             Funding Landscape
           </h2>
           <p className="mt-6 text-base leading-relaxed text-slate">

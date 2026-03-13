@@ -81,7 +81,7 @@ export default function Nav() {
             height={17}
             className={`transition-all duration-300 ${logoFilter}`}
           />
-          <span className={`font-serif text-xl tracking-[-0.01em] transition-colors duration-300 ${nameColor}`}>
+          <span className={`font-display text-xl tracking-[-0.01em] transition-colors duration-300 ${nameColor}`}>
             Winsemius
           </span>
         </a>
