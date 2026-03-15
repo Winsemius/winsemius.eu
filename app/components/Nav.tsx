@@ -5,8 +5,8 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const links = [
+  { href: "/advisor", label: "Advisor", highlight: true },
   { href: "/principles", label: "Principles" },
-  { href: "#insights", label: "Insights" },
   { href: "/funding", label: "Funding" },
   { href: "#contact", label: "Contact" },
 ];
@@ -80,7 +80,11 @@ export default function Nav() {
               <a
                 href={l.href}
                 onClick={(e) => handleClick(e, l.href)}
-                className="text-sm uppercase tracking-[0.1em] transition-colors duration-200 text-text-muted hover:text-amber"
+                className={`text-sm uppercase tracking-[0.1em] transition-colors duration-200 ${
+                  "highlight" in l && l.highlight
+                    ? "text-amber border border-amber/30 px-3 py-1.5 hover:bg-amber/10"
+                    : "text-text-muted hover:text-amber"
+                }`}
               >
                 {l.label}
               </a>
