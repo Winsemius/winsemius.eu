@@ -15,61 +15,50 @@ const cards: CardData[] = [
   {
     label: "REARM EUROPE / READINESS 2030",
     amount: "€800B",
-    summary:
-      "Total defence spending mobilisation target across EU member states",
+    summary: "Total defence spending mobilisation target across EU member states",
     detailLabel: "REARM EUROPE DETAILS",
-    detail:
-      "The landmark plan combines national fiscal space unlocks, EU-level joint borrowing, and EIB/EIF financing to mobilise €800B over a decade. Member states can exempt defence spending from fiscal rules, encouraging rapid scale-up.",
-    color: "#D97706",
+    detail: "The landmark plan combines national fiscal space unlocks, EU-level joint borrowing, and EIB/EIF financing to mobilise €800B over a decade. Member states can exempt defence spending from fiscal rules, encouraging rapid scale-up.",
+    color: "#ef4444",
   },
   {
     label: "SAFE LOANS FACILITY",
     amount: "€150B",
-    summary:
-      "Competitively priced loans for joint defence procurement, adopted May 2025",
+    summary: "Competitively priced loans for joint defence procurement, adopted May 2025",
     detailLabel: "SAFE LOANS DETAILS",
-    detail:
-      "Security Action For Europe (SAFE) provides EU-backed loans at near-sovereign rates for collaborative procurement of air & missile defence, ammunition, and strategic enablers. Minimum two member states per application.",
-    color: "#2563EB",
+    detail: "Security Action For Europe (SAFE) provides EU-backed loans at near-sovereign rates for collaborative procurement of air & missile defence, ammunition, and strategic enablers. Minimum two member states per application.",
+    color: "#22c55e",
   },
   {
     label: "EU-27 DEFENCE SPENDING",
     amount: "€392B",
-    summary:
-      "Projected 2025 aggregate, up from €343B in 2024 \u2014 rising to 2.1% of GDP",
+    summary: "Projected 2025 aggregate, up from €343B in 2024 \u2014 rising to 2.1% of GDP",
     detailLabel: "SPENDING TREND",
-    detail:
-      "EU-27 defence spending has grown every year since 2014, accelerating sharply post-2022. The 2025 projection of €392B represents a 14% YoY increase, with 18 member states now meeting or exceeding the 2% GDP target.",
-    color: "#059669",
+    detail: "EU-27 defence spending has grown every year since 2014, accelerating sharply post-2022. The 2025 projection of €392B represents a 14% YoY increase, with 18 member states now meeting or exceeding the 2% GDP target.",
+    color: "#f59e0b",
   },
   {
     label: "DEFENCE INVESTMENT GROWTH",
     amount: "+42%",
-    summary:
-      "Year-on-year increase in equipment & R&D spending, reaching €106B in 2024",
+    summary: "Year-on-year increase in equipment & R&D spending, reaching €106B in 2024",
     detailLabel: "INVESTMENT BREAKDOWN",
-    detail:
-      "Equipment procurement surged 42% in 2024, driven by urgent needs in air defence, ammunition, and armoured vehicles. R&D spending grew 28%, with a strong push toward autonomous systems and space capabilities.",
-    color: "#D97706",
+    detail: "Equipment procurement surged 42% in 2024, driven by urgent needs in air defence, ammunition, and armoured vehicles. R&D spending grew 28%, with a strong push toward autonomous systems and space capabilities.",
+    color: "#f59e0b",
   },
   {
     label: "EUROPEAN DEFENCE FUND 2026",
     amount: "€1B",
     summary: "Annual budget for collaborative R&D across 31 call topics",
     detailLabel: "EDF DETAILS",
-    detail:
-      "The EDF co-finances collaborative R&D and capability development with 75\u2013100% EU funding rates. Priority areas: CBRN, cyber, space, maritime, and next-gen land systems. Requires consortia from at least 3 member states.",
-    color: "#2563EB",
+    detail: "The EDF co-finances collaborative R&D and capability development with 75\u2013100% EU funding rates. Priority areas: CBRN, cyber, space, maritime, and next-gen land systems. Requires consortia from at least 3 member states.",
+    color: "#22c55e",
   },
   {
     label: "EDIP GRANTS",
     amount: "€1.5B",
-    summary:
-      "Grants for 2025\u20132027 to boost defence industrial readiness",
+    summary: "Grants for 2025\u20132027 to boost defence industrial readiness",
     detailLabel: "EDIP DETAILS",
-    detail:
-      "The European Defence Industrial Programme targets production ramp-up, supply chain resilience, and strategic stockpiling. Focus on SME participation and reducing dependency on non-EU suppliers for critical components.",
-    color: "#059669",
+    detail: "The European Defence Industrial Programme targets production ramp-up, supply chain resilience, and strategic stockpiling. Focus on SME participation and reducing dependency on non-EU suppliers for critical components.",
+    color: "#ef4444",
   },
 ];
 
@@ -91,48 +80,41 @@ function FlipCard({ card }: { card: CardData }) {
       >
         {/* Front */}
         <div
-          className="w-full rounded-2xl border bg-paper p-6 text-left transition-colors hover:bg-parchment"
-          style={{
-            backfaceVisibility: "hidden",
-            borderColor: `color-mix(in srgb, ${card.color} 25%, transparent)`,
-          }}
+          className="w-full briefing-card p-6 text-left hover:border-amber/30 transition-colors"
+          style={{ backfaceVisibility: "hidden" }}
         >
           <p
-            className="text-[0.65rem] font-bold tracking-[0.12em]"
+            className="text-[0.65rem] font-mono font-bold tracking-[0.12em]"
             style={{ color: card.color }}
           >
             {card.label}
           </p>
-          <p
-            className="mt-2 text-3xl font-light text-ink md:text-4xl"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
+          <p className="mt-2 text-3xl font-bold text-text md:text-4xl font-display">
             {card.amount}
           </p>
-          <p className="mt-2 text-sm leading-relaxed text-slate">
+          <p className="mt-2 text-sm leading-relaxed text-text-secondary">
             {card.summary}
           </p>
         </div>
 
         {/* Back */}
         <div
-          className="absolute inset-0 w-full rounded-2xl border bg-paper p-6 text-left"
+          className="absolute inset-0 w-full briefing-card p-6 text-left"
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
-            borderColor: `color-mix(in srgb, ${card.color} 25%, transparent)`,
           }}
         >
           <p
-            className="text-[0.65rem] font-bold tracking-[0.12em]"
+            className="text-[0.65rem] font-mono font-bold tracking-[0.12em]"
             style={{ color: card.color }}
           >
             {card.detailLabel}
           </p>
-          <p className="mt-3 text-sm leading-relaxed text-slate">
+          <p className="mt-3 text-sm leading-relaxed text-text-secondary">
             {card.detail}
           </p>
-          <p className="mt-4 text-[0.6rem] font-semibold tracking-[0.1em] text-muted uppercase">
+          <p className="mt-4 text-[0.6rem] font-mono tracking-[0.1em] text-text-muted uppercase">
             Click to flip back &#x21BB;
           </p>
         </div>
@@ -143,18 +125,14 @@ function FlipCard({ card }: { card: CardData }) {
 
 export default function FundingLandscape() {
   return (
-    <section className="bg-parchment py-24 md:py-32">
+    <section className="bg-surface py-24 md:py-32 border-b border-border">
       <div className="mx-auto max-w-6xl px-6">
         <div className="text-center">
-          <h2
-            className="text-3xl font-light leading-snug tracking-tight text-ink md:text-4xl"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
+          <h2 className="text-3xl font-bold tracking-[-0.03em] text-text md:text-4xl">
             The EU Defence Funding Landscape
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-sm text-slate">
-            Europe is mobilising unprecedented capital for defence. The
-            opportunity window is now.
+          <p className="mx-auto mt-4 max-w-lg text-sm text-text-secondary">
+            Europe is mobilising unprecedented capital for defence. The opportunity window is now.
           </p>
         </div>
 

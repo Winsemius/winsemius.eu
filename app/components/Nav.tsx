@@ -46,11 +46,11 @@ export default function Nav() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-paper/95 backdrop-blur-sm border-b border-rule"
+          ? "bg-void/90 backdrop-blur-md border-b border-border"
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a
           href="/"
           className="flex items-center gap-3"
@@ -64,23 +64,23 @@ export default function Nav() {
           <Image
             src="/logobrilonly.svg"
             alt="Winsemius"
-            width={40}
-            height={17}
-            className="transition-all duration-300"
+            width={36}
+            height={15}
+            className="brightness-0 invert opacity-80"
           />
-          <span className="font-display text-xl tracking-[-0.01em] transition-colors duration-300 text-ink">
+          <span className="font-display text-lg tracking-[-0.01em] text-text font-medium">
             Winsemius
           </span>
         </a>
 
         {/* Desktop nav */}
-        <ul className="hidden items-center gap-10 md:flex">
+        <ul className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
                 onClick={(e) => handleClick(e, l.href)}
-                className="text-sm transition-colors duration-200 text-slate hover:text-ink"
+                className="text-sm uppercase tracking-[0.1em] transition-colors duration-200 text-text-muted hover:text-amber"
               >
                 {l.label}
               </a>
@@ -91,7 +91,7 @@ export default function Nav() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-sm transition-colors duration-200 text-slate"
+          className="md:hidden text-sm uppercase tracking-[0.1em] text-text-muted"
           aria-label="Toggle menu"
         >
           {menuOpen ? "Close" : "Menu"}
@@ -100,14 +100,14 @@ export default function Nav() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="border-t border-rule bg-paper px-6 py-6 md:hidden">
+        <div className="border-t border-border bg-void/95 backdrop-blur-md px-6 py-6 md:hidden">
           <ul className="flex flex-col gap-4">
             {links.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
                   onClick={(e) => handleClick(e, l.href)}
-                  className="text-base text-ink"
+                  className="text-base text-text uppercase tracking-[0.05em]"
                 >
                   {l.label}
                 </a>

@@ -15,7 +15,7 @@ export default function FundingPage() {
   return (
     <>
       <Nav />
-      <main className="bg-paper">
+      <main className="bg-void">
         <div className="pt-28" />
         <FundingExplorer />
         <FundingLandscape />

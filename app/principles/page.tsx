@@ -132,17 +132,20 @@ export default function PrinciplesPage() {
   return (
     <>
       <Nav />
-      <main className="bg-paper">
+      <main className="bg-void">
         {/* Header */}
         <section className="pt-32 pb-16 md:pt-40 md:pb-20">
           <div className="mx-auto max-w-3xl px-6">
-            <p className="text-sm font-semibold tracking-[0.2em] text-accent uppercase">
-              Policy Framework
-            </p>
-            <h1 className="mt-6 text-4xl font-bold tracking-[-0.04em] text-ink md:text-6xl">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-px w-8 bg-amber" />
+              <span className="text-xs font-mono uppercase tracking-[0.2em] text-amber">
+                Policy Framework
+              </span>
+            </div>
+            <h1 className="mt-6 text-4xl font-bold tracking-[-0.04em] text-text md:text-6xl">
               Core Principles
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-slate max-w-2xl">
+            <p className="mt-6 text-lg leading-relaxed text-text-secondary max-w-2xl">
               Winsemius Group works at the intersection of defence technology,
               industrial policy, and capital markets. The principles below
               represent our working position on how European defence capability
@@ -152,9 +155,9 @@ export default function PrinciplesPage() {
         </section>
 
         {/* Mission */}
-        <section className="bg-parchment py-16 md:py-20">
+        <section className="bg-surface py-16 md:py-20 border-t border-b border-border">
           <div className="mx-auto max-w-3xl px-6">
-            <p className="text-xl leading-relaxed tracking-[-0.01em] text-ink font-display font-medium md:text-2xl">
+            <p className="text-xl leading-relaxed tracking-[-0.01em] text-text font-display font-medium md:text-2xl">
               The structural assumptions underlying most European defence policy
               are badly out of date. Closing the gap between stated ambition and
               operational reality requires more than increased budgets. It
@@ -171,30 +174,30 @@ export default function PrinciplesPage() {
             {principles.map((p, i) => (
               <article
                 key={p.number}
-                className={`${i > 0 ? "mt-16 pt-16 border-t border-rule" : ""}`}
+                className={`${i > 0 ? "mt-16 pt-16 border-t border-border" : ""}`}
               >
-                <span className="text-xs font-medium tracking-[0.15em] text-accent uppercase">
+                <span className="text-xs font-mono tracking-[0.15em] text-amber uppercase">
                   Principle {p.number}
                 </span>
-                <h2 className="mt-3 text-2xl font-bold tracking-[-0.03em] text-ink md:text-3xl">
+                <h2 className="mt-3 text-2xl font-bold tracking-[-0.03em] text-text md:text-3xl">
                   {p.title}
                 </h2>
-                <p className="mt-6 text-base leading-relaxed text-ink font-medium">
+                <p className="mt-6 text-base leading-relaxed text-text font-medium">
                   {p.lead}
                 </p>
-                <p className="mt-4 text-base leading-relaxed text-slate">
+                <p className="mt-4 text-base leading-relaxed text-text-secondary">
                   {p.body}
                 </p>
                 <ul className="mt-6 space-y-3">
                   {p.bullets.map((b, j) => (
-                    <li key={j} className="flex gap-3 text-sm leading-relaxed text-slate">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent/40" />
+                    <li key={j} className="flex gap-3 text-sm leading-relaxed text-text-secondary">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-amber/60" />
                       {b}
                     </li>
                   ))}
                 </ul>
                 {p.footer && (
-                  <p className="mt-6 text-base leading-relaxed text-slate">
+                  <p className="mt-6 text-base leading-relaxed text-text-secondary">
                     {p.footer}
                   </p>
                 )}
@@ -204,29 +207,32 @@ export default function PrinciplesPage() {
         </section>
 
         {/* Proposed White Papers */}
-        <section className="bg-parchment py-16 md:py-24">
+        <section className="bg-surface py-16 md:py-24 border-t border-border">
           <div className="mx-auto max-w-3xl px-6">
-            <p className="text-sm font-semibold tracking-[0.2em] text-accent uppercase">
-              Proposed White Papers
-            </p>
-            <h2 className="mt-4 text-2xl font-bold tracking-[-0.03em] text-ink md:text-3xl">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-px w-8 bg-amber" />
+              <span className="text-xs font-mono uppercase tracking-[0.2em] text-amber">
+                Proposed White Papers
+              </span>
+            </div>
+            <h2 className="mt-4 text-2xl font-bold tracking-[-0.03em] text-text md:text-3xl">
               Where we are taking this
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-slate">
+            <p className="mt-4 text-base leading-relaxed text-text-secondary">
               The following white papers develop the Winsemius policy agenda in
               three priority areas.
             </p>
 
-            <div className="mt-12 space-y-8">
+            <div className="mt-12 space-y-6">
               {whitepapers.map((wp, i) => (
                 <div
                   key={i}
-                  className="border-l-2 border-accent pl-6"
+                  className="briefing-card p-6"
                 >
-                  <h3 className="text-lg font-semibold tracking-[-0.02em] text-ink">
+                  <h3 className="text-lg font-semibold tracking-[-0.02em] text-text">
                     {wp.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-slate">
+                  <p className="mt-3 text-sm leading-relaxed text-text-secondary">
                     {wp.description}
                   </p>
                 </div>
@@ -236,14 +242,14 @@ export default function PrinciplesPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-16 md:py-20 border-t border-rule">
+        <section className="py-16 md:py-20 border-t border-border">
           <div className="mx-auto max-w-3xl px-6 text-center">
-            <p className="text-lg text-slate">
+            <p className="text-lg text-text-secondary">
               Want to discuss any of these positions?
             </p>
             <a
               href="mailto:info@winsemius.eu"
-              className="mt-4 inline-block text-lg font-medium text-accent underline underline-offset-4 decoration-accent/30 hover:decoration-accent transition-colors"
+              className="mt-4 inline-block text-lg font-mono text-amber hover:text-amber-bright transition-colors"
             >
               info@winsemius.eu
             </a>
