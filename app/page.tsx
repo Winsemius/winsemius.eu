@@ -1,5 +1,6 @@
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
+import Introduction from "./components/Introduction";
 import Thesis from "./components/Thesis";
 import Principles from "./components/Principles";
 import Insights from "./components/Insights";
@@ -13,6 +14,7 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
+        <Introduction />
         <Thesis />
         <Principles />
         <Insights />
