@@ -2,6 +2,7 @@ import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Introduction from "./components/Introduction";
 import Thesis from "./components/Thesis";
+import WhatIsABroker from "./components/WhatIsABroker";
 import Services from "./components/Services";
 import Principles from "./components/Principles";
 import Insights from "./components/Insights";
@@ -17,6 +18,7 @@ export default function Home() {
         <Hero />
         <Introduction />
         <Thesis />
+        <WhatIsABroker />
         <Services />
         <Principles />
         <Insights />
