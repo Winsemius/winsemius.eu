@@ -39,6 +39,30 @@ const services = [
     what: "Navigate export controls, dual-use regulations, and cross-border compliance across European jurisdictions. Licensing strategy, end-user certification, and supply chain security.",
     outcome: "Capability delivered across borders with licences secured.",
   },
+  {
+    slug: "technology-scouting",
+    title: "Defence Technology Scouting",
+    what: "Systematic identification and assessment of emerging defence technologies across European ecosystems. We map capabilities to operational requirements and connect you with the companies building them.",
+    outcome: "The right technology matched to the right need, before your competitors find it.",
+  },
+  {
+    slug: "mergers-acquisitions",
+    title: "M&A Advisory",
+    what: "Buy-side and sell-side advisory for defence technology transactions. Target identification, due diligence, valuation, deal structuring, and post-merger integration for defence sector M&A.",
+    outcome: "Defence deals that close, with regulatory clearance secured.",
+  },
+  {
+    slug: "market-entry",
+    title: "Market Entry Strategy",
+    what: "Strategic positioning for companies entering European defence markets. Stakeholder mapping, regulatory landscape analysis, go-to-market sequencing, and institutional relationship building across target countries.",
+    outcome: "Market access that produces contracts, not calendar invites.",
+  },
+  {
+    slug: "pricing-capture",
+    title: "Pricing & Capture Strategy",
+    what: "Bid strategy, competitive positioning, and pricing optimisation for defence tenders. Win theme development, teaming strategy, and capture management from opportunity identification to contract award.",
+    outcome: "Higher win rates on the bids that matter.",
+  },
 ];
 
 const serviceIcons = [
@@ -54,6 +78,14 @@ const serviceIcons = [
   <svg key="4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg>,
   // Export - globe
   <svg key="5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>,
+  // Tech scouting - search/crosshair
+  <svg key="6" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /><path d="M11 8v6M8 11h6" /></svg>,
+  // M&A - handshake/merge
+  <svg key="7" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /><path d="m4 12 5 5L20 6" /></svg>,
+  // Market entry - door/arrow
+  <svg key="8" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /><polyline points="10 17 15 12 10 7" /><line x1="15" y1="12" x2="3" y2="12" /></svg>,
+  // Pricing/capture - target
+  <svg key="9" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg>,
 ];
 
 export default function Services() {
@@ -87,7 +119,7 @@ export default function Services() {
                 {serviceIcons[i]}
               </div>
               <span className="text-xs font-mono text-text-muted">
-                0{i + 1}
+                {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="mt-2 text-lg font-semibold leading-snug tracking-[-0.01em] text-text font-display group-hover:text-amber transition-colors duration-300">
                 {s.title}
