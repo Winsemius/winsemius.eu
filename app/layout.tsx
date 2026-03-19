@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
+import MatomoTracker from "./components/MatomoTracker";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -61,8 +63,37 @@ export default function RootLayout({
             }),
           }}
         />
+        {/* Matomo Analytics */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              var _paq = window._paq = window._paq || [];
+              _paq.push(['trackPageView']);
+              _paq.push(['enableLinkTracking']);
+              _paq.push(['enableHeartBeatTimer']);
+              (function() {
+                var u="https://matomo.tactcheck.com/";
+                _paq.push(['setTrackerUrl', u+'matomo.php']);
+                _paq.push(['setSiteId', '5']);
+                var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+                g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+              })();
+            `,
+          }}
+        />
+        <noscript>
+          <img
+            referrerPolicy="no-referrer-when-downgrade"
+            src="https://matomo.tactcheck.com/matomo.php?idsite=5&amp;rec=1"
+            style={{ border: 0 }}
+            alt=""
+          />
+        </noscript>
       </head>
       <body className="antialiased">
+        <Suspense fallback={null}>
+          <MatomoTracker />
+        </Suspense>
         <div className="noise-overlay" />
         {children}
       </body>
