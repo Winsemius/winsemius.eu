@@ -161,7 +161,7 @@ export default function FundingStrategist() {
 
   return (
     <section
-      id="strategist"
+      id="advisor"
       className="relative bg-surface py-24 md:py-32 border-t border-border overflow-hidden"
       ref={sectionRef}
     >

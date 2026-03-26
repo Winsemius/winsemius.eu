@@ -18,8 +18,7 @@ const serviceItems = [
 ];
 
 const links = [
-  { href: "/advisor", label: "Advisor", highlight: true },
-  { href: "#strategist", label: "Strategist", highlight: true },
+  { href: "#advisor", label: "Advisor", highlight: true },
   { href: "/digest", label: "Digest" },
   { href: "/principles", label: "Principles" },
   { href: "/funding", label: "Funding" },
