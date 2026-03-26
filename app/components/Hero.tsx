@@ -135,6 +135,10 @@ export default function Hero() {
             </span>
           </div>
 
+          <p className="text-sm font-mono uppercase tracking-[0.2em] text-amber/80 mb-6 md:text-base">
+            Funding strategies for startups &amp; scale-ups
+          </p>
+
           <h1 className="text-5xl font-bold leading-[0.95] tracking-[-0.04em] text-text md:text-7xl lg:text-[5.5rem]">
             Europe has the budgets.
             <br />

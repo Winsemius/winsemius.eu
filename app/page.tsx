@@ -7,6 +7,7 @@ import Services from "./components/Services";
 import Principles from "./components/Principles";
 import Insights from "./components/Insights";
 import FundingSection from "./components/FundingSection";
+import FundingStrategist from "./components/FundingStrategist";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
@@ -23,6 +24,7 @@ export default function Home() {
         <Principles />
         <Insights />
         <FundingSection />
+        <FundingStrategist />
         <Contact />
       </main>
       <Footer />
