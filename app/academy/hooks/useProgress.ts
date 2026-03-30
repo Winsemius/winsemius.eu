@@ -5,6 +5,7 @@ import { useState, useEffect, useCallback } from "react";
 type ProgressData = {
   completedModules: string[];
   quizScores: Record<string, number>;
+  completedSections: Record<string, string[]>;
 };
 
 const STORAGE_PREFIX = "winsemius_progress_";
@@ -15,7 +16,7 @@ function getStorageKey(courseId: string) {
 
 function loadProgress(courseId: string): ProgressData {
   if (typeof window === "undefined") {
-    return { completedModules: [], quizScores: {} };
+    return { completedModules: [], quizScores: {}, completedSections: {} };
   }
   try {
     const raw = localStorage.getItem(getStorageKey(courseId));
@@ -24,12 +25,13 @@ function loadProgress(courseId: string): ProgressData {
       return {
         completedModules: parsed.completedModules ?? [],
         quizScores: parsed.quizScores ?? {},
+        completedSections: parsed.completedSections ?? {},
       };
     }
   } catch {
     // Ignore parse errors
   }
-  return { completedModules: [], quizScores: {} };
+  return { completedModules: [], quizScores: {}, completedSections: {} };
 }
 
 function saveProgress(courseId: string, data: ProgressData) {
@@ -41,10 +43,15 @@ function saveProgress(courseId: string, data: ProgressData) {
   }
 }
 
-export function useProgress(courseId: string, totalModules: number = 6) {
+export function useProgress(
+  courseId: string,
+  totalModules: number = 6,
+  moduleSectionCounts?: Record<string, number>
+) {
   const [data, setData] = useState<ProgressData>({
     completedModules: [],
     quizScores: {},
+    completedSections: {},
   });
   const [loaded, setLoaded] = useState(false);
 
@@ -56,10 +63,12 @@ export function useProgress(courseId: string, totalModules: number = 6) {
 
   const completedModules = data.completedModules;
   const quizScores = data.quizScores;
+  const completedSections = data.completedSections;
 
-  const progress = totalModules > 0
-    ? Math.round((completedModules.length / totalModules) * 100)
-    : 0;
+  const progress =
+    totalModules > 0
+      ? Math.round((completedModules.length / totalModules) * 100)
+      : 0;
 
   const isEligibleForCertificate =
     completedModules.length >= totalModules &&
@@ -81,6 +90,38 @@ export function useProgress(courseId: string, totalModules: number = 6) {
     [courseId]
   );
 
+  const markSectionComplete = useCallback(
+    (moduleId: string, sectionIndex: string) => {
+      setData((prev) => {
+        const moduleSections = prev.completedSections[moduleId] ?? [];
+        if (moduleSections.includes(sectionIndex)) return prev;
+
+        const updatedModuleSections = [...moduleSections, sectionIndex];
+        const next: ProgressData = {
+          ...prev,
+          completedSections: {
+            ...prev.completedSections,
+            [moduleId]: updatedModuleSections,
+          },
+        };
+
+        // Auto-complete module when all sections are done
+        if (
+          moduleSectionCounts &&
+          moduleSectionCounts[moduleId] !== undefined &&
+          updatedModuleSections.length >= moduleSectionCounts[moduleId] &&
+          !prev.completedModules.includes(moduleId)
+        ) {
+          next.completedModules = [...prev.completedModules, moduleId];
+        }
+
+        saveProgress(courseId, next);
+        return next;
+      });
+    },
+    [courseId, moduleSectionCounts]
+  );
+
   const saveQuizScore = useCallback(
     (moduleId: string, scorePercent: number) => {
       setData((prev) => {
@@ -96,7 +137,11 @@ export function useProgress(courseId: string, totalModules: number = 6) {
   );
 
   const resetProgress = useCallback(() => {
-    const empty: ProgressData = { completedModules: [], quizScores: {} };
+    const empty: ProgressData = {
+      completedModules: [],
+      quizScores: {},
+      completedSections: {},
+    };
     setData(empty);
     saveProgress(courseId, empty);
   }, [courseId]);
@@ -104,9 +149,11 @@ export function useProgress(courseId: string, totalModules: number = 6) {
   return {
     completedModules,
     quizScores,
+    completedSections,
     progress,
     isEligibleForCertificate,
     markModuleComplete,
+    markSectionComplete,
     saveQuizScore,
     resetProgress,
     loaded,
