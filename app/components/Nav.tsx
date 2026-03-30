@@ -22,6 +22,7 @@ const links = [
   { href: "/digest", label: "Digest" },
   { href: "/principles", label: "Principles" },
   { href: "/funding", label: "Funding" },
+  { href: "/academy", label: "Academy" },
   { href: "#contact", label: "Contact" },
 ];
 
