@@ -1,58 +1,26 @@
 "use client";
 
+import Link from "next/link";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import { useReveal } from "../../hooks/useReveal";
+import { militaryDroneOpsCourse } from "../data/course-data";
+import { useProgress } from "../hooks/useProgress";
 
-const modules = [
-  {
-    number: "01",
-    title: "EU Drone Regulations & Military Exemptions",
-    description:
-      "Navigate the EASA regulatory framework including A1/A3/A2 categories, understand military-specific exemptions across EU member states, and apply SORA methodology for operational risk assessment.",
-    time: "~2 hours",
-  },
-  {
-    number: "02",
-    title: "Drone Systems & Technology",
-    description:
-      "Compare fixed-wing, multirotor, and VTOL platforms. Understand payloads, sensor suites, communication links, data protocols, and electronic warfare considerations for military drone systems.",
-    time: "~2 hours",
-  },
-  {
-    number: "03",
-    title: "Mission Planning & Airspace",
-    description:
-      "Master operational planning from mission briefing to execution. Covers airspace classification, NOTAMs, civil-military deconfliction procedures, and comprehensive risk assessment frameworks.",
-    time: "~2 hours",
-  },
-  {
-    number: "04",
-    title: "Flight Operations & Procedures",
-    description:
-      "Execute pre-flight checks, manage in-flight emergencies, apply crew resource management principles, and follow standard handover protocols for safe and effective operations.",
-    time: "~2 hours",
-  },
-  {
-    number: "05",
-    title: "ISR & Tactical Employment",
-    description:
-      "Apply intelligence gathering techniques, design surveillance patterns, conduct target acquisition, exploit collected data, and manage real-time feeds for tactical decision-making.",
-    time: "~2 hours",
-  },
-  {
-    number: "06",
-    title: "Counter-UAS & Force Protection",
-    description:
-      "Assess UAS threats, understand detection and tracking systems, evaluate kinetic and non-kinetic countermeasures, and integrate electronic warfare into force protection operations.",
-    time: "~2 hours",
-  },
-];
+const course = militaryDroneOpsCourse;
 
 export default function MilitaryDroneOpsPage() {
   const heroRef = useReveal();
   const modulesRef = useReveal();
   const ctaRef = useReveal();
+
+  const {
+    completedModules,
+    quizScores,
+    progress,
+    isEligibleForCertificate,
+    loaded,
+  } = useProgress(course.id, course.modules.length);
 
   return (
     <>
@@ -70,12 +38,12 @@ export default function MilitaryDroneOpsPage() {
               </div>
 
               <nav className="mb-6">
-                <a
+                <Link
                   href="/academy"
                   className="text-xs font-mono uppercase tracking-[0.1em] text-text-muted hover:text-amber transition-colors duration-200"
                 >
                   Academy
-                </a>
+                </Link>
                 <span className="text-xs text-text-muted mx-2">/</span>
                 <span className="text-xs font-mono uppercase tracking-[0.1em] text-text-secondary">
                   Military Drone Ops
@@ -83,13 +51,10 @@ export default function MilitaryDroneOpsPage() {
               </nav>
 
               <h1 className="text-4xl font-bold tracking-[-0.04em] text-text md:text-5xl">
-                Military Drone Operations Fundamentals
+                {course.title}
               </h1>
               <p className="mt-6 text-lg leading-relaxed text-text-secondary max-w-2xl">
-                A comprehensive foundation course covering EU drone regulations, systems
-                technology, mission planning, flight operations, ISR tactics, and
-                counter-UAS. Designed for defence professionals entering the military
-                drone domain.
+                {course.description}
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-6">
@@ -108,7 +73,9 @@ export default function MilitaryDroneOpsPage() {
                     <circle cx="12" cy="12" r="10" />
                     <polyline points="12 6 12 12 16 14" />
                   </svg>
-                  <span className="text-sm text-text-secondary">~12 hours</span>
+                  <span className="text-sm text-text-secondary">
+                    {course.duration}
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <svg
@@ -125,7 +92,9 @@ export default function MilitaryDroneOpsPage() {
                     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
                     <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
                   </svg>
-                  <span className="text-sm text-text-secondary">6 modules</span>
+                  <span className="text-sm text-text-secondary">
+                    {course.modules.length} modules
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <svg
@@ -142,7 +111,9 @@ export default function MilitaryDroneOpsPage() {
                     <polyline points="9 11 12 14 22 4" />
                     <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
                   </svg>
-                  <span className="text-sm text-text-secondary">Quizzes + Certificate</span>
+                  <span className="text-sm text-text-secondary">
+                    Quizzes + Certificate
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <svg
@@ -159,28 +130,74 @@ export default function MilitaryDroneOpsPage() {
                     <path d="M2 20h20M5 20V8l7-5 7 5v12" />
                     <path d="M9 20v-4h6v4" />
                   </svg>
-                  <span className="text-sm text-text-secondary">Foundation level</span>
+                  <span className="text-sm text-text-secondary">
+                    {course.level} level
+                  </span>
                 </div>
               </div>
 
-              <a
-                href="mailto:info@winsemius.eu?subject=Enrol%20-%20Military%20Drone%20Ops"
-                className="mt-8 inline-flex items-center gap-2 border border-amber/30 bg-amber/5 px-6 py-3 text-sm font-mono uppercase tracking-[0.1em] text-amber hover:bg-amber/10 transition-colors duration-200"
-              >
-                Start Course
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+              {/* Progress bar */}
+              {loaded && progress > 0 && (
+                <div className="mt-8">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-mono uppercase tracking-[0.1em] text-text-muted">
+                      Progress
+                    </span>
+                    <span className="text-xs font-mono text-amber">
+                      {progress}%
+                    </span>
+                  </div>
+                  <div className="h-1 bg-border w-full">
+                    <div
+                      className="h-1 bg-amber transition-all duration-500"
+                      style={{ width: `${progress}%` }}
+                    />
+                  </div>
+                </div>
+              )}
+
+              {/* Certificate link */}
+              {loaded && isEligibleForCertificate && (
+                <Link
+                  href="/academy/military-drone-ops/certificate"
+                  className="mt-6 inline-flex items-center gap-2 border border-green/30 bg-green/5 px-6 py-3 text-sm font-mono uppercase tracking-[0.1em] text-green hover:bg-green/10 transition-colors duration-200"
                 >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </a>
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  View Certificate
+                </Link>
+              )}
+
+              {loaded && !isEligibleForCertificate && (
+                <Link
+                  href={`/academy/military-drone-ops/${course.modules[0].id}`}
+                  className="mt-8 inline-flex items-center gap-2 border border-amber/30 bg-amber/5 px-6 py-3 text-sm font-mono uppercase tracking-[0.1em] text-amber hover:bg-amber/10 transition-colors duration-200"
+                >
+                  {progress > 0 ? "Continue Course" : "Start Course"}
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              )}
             </div>
           </div>
         </section>
@@ -204,31 +221,75 @@ export default function MilitaryDroneOpsPage() {
             </div>
 
             <div className="mt-10 space-y-0">
-              {modules.map((m, i) => (
-                <div
-                  key={m.number}
-                  className={`reveal stagger-${Math.min(i + 1, 6)} py-8 border-b border-border group`}
-                >
-                  <div className="flex gap-4">
-                    <span className="shrink-0 text-lg font-mono text-amber/50">
-                      {m.number}
-                    </span>
-                    <div className="flex-1">
-                      <div className="flex flex-wrap items-start justify-between gap-4">
-                        <h3 className="text-lg font-semibold tracking-[-0.01em] text-text font-display">
-                          {m.title}
-                        </h3>
-                        <span className="shrink-0 text-xs font-mono text-text-muted uppercase tracking-[0.1em]">
-                          {m.time}
-                        </span>
+              {course.modules.map((m, i) => {
+                const isComplete = completedModules.includes(m.id);
+                const score = quizScores[m.id];
+                const quizPassed = score !== undefined && score >= 70;
+
+                return (
+                  <Link
+                    key={m.id}
+                    href={`/academy/military-drone-ops/${m.id}`}
+                    className={`reveal stagger-${Math.min(
+                      i + 1,
+                      6
+                    )} block py-8 border-b border-border group transition-all duration-200 hover:bg-surface-raised/30`}
+                  >
+                    <div className="flex gap-4">
+                      <span className="shrink-0 text-lg font-mono text-amber/50">
+                        {String(m.number).padStart(2, "0")}
+                      </span>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex flex-wrap items-start justify-between gap-4">
+                          <h3 className="text-lg font-semibold tracking-[-0.01em] text-text font-display group-hover:text-amber transition-colors duration-200">
+                            {m.title}
+                          </h3>
+                          <div className="shrink-0 flex items-center gap-3">
+                            <span className="text-xs font-mono text-text-muted uppercase tracking-[0.1em]">
+                              {m.duration}
+                            </span>
+                          </div>
+                        </div>
+                        <p className="mt-3 text-sm leading-relaxed text-text-secondary">
+                          {m.description}
+                        </p>
+
+                        {/* Progress indicators */}
+                        {loaded && (isComplete || score !== undefined) && (
+                          <div className="mt-3 flex flex-wrap items-center gap-4">
+                            {isComplete && (
+                              <span className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-[0.1em] text-green">
+                                <svg
+                                  width="12"
+                                  height="12"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                >
+                                  <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Complete
+                              </span>
+                            )}
+                            {score !== undefined && (
+                              <span
+                                className={`inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-[0.1em] ${
+                                  quizPassed ? "text-green" : "text-red"
+                                }`}
+                              >
+                                Quiz: {score}%
+                              </span>
+                            )}
+                          </div>
+                        )}
                       </div>
-                      <p className="mt-3 text-sm leading-relaxed text-text-secondary">
-                        {m.description}
-                      </p>
                     </div>
-                  </div>
-                </div>
-              ))}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -244,13 +305,14 @@ export default function MilitaryDroneOpsPage() {
                 Ready to begin?
               </h2>
               <p className="mt-4 text-lg text-text-secondary">
-                Contact us to enrol in Military Drone Operations Fundamentals.
+                Work through all six modules, pass the quizzes, and earn your
+                Winsemius Defence Drone Certificate.
               </p>
-              <a
-                href="mailto:info@winsemius.eu?subject=Enrol%20-%20Military%20Drone%20Ops"
+              <Link
+                href={`/academy/military-drone-ops/${course.modules[0].id}`}
                 className="mt-6 inline-flex items-center gap-2 border border-amber/30 bg-amber/5 px-6 py-3 text-sm font-mono uppercase tracking-[0.1em] text-amber hover:bg-amber/10 transition-colors duration-200"
               >
-                Enrol now
+                {progress > 0 ? "Continue Learning" : "Start Module 1"}
                 <svg
                   width="14"
                   height="14"
@@ -263,7 +325,7 @@ export default function MilitaryDroneOpsPage() {
                 >
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </section>

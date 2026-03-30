@@ -137,3 +137,13 @@ h1, h2, h3 {
   box-shadow: 0 0 8px var(--color-green);
   animation: pulse-subtle 2s ease-in-out infinite;
 }
+
+/* Print styles for certificate */
+@media print {
+  body { background: white !important; color: black !important; }
+  header, footer, nav, .noise-overlay { display: none !important; }
+  main { padding: 0 !important; }
+  #certificate { border: 1px solid #d4af37 !important; box-shadow: none !important; }
+  button { display: none !important; }
+  a[href]:not(#certificate a) { display: none !important; }
+}
