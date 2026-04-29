@@ -66,24 +66,47 @@ jobs:
 
       - name: 'Find untriaged issues'
         id: 'find_issues'
-        env:
-          GITHUB_REPOSITORY: '${{ github.repository }}'
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN || github.token }}'
-        run: |-
-          echo '🔍 Finding unlabeled issues and issues marked for triage...'
-          ISSUES="$(gh issue list \
-            --state 'open' \
-            --search 'no:label label:"status/needs-triage"' \
-            --json number,title,body \
-            --limit '100' \
-            --repo "${GITHUB_REPOSITORY}"
-          )"
+        uses: 'actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd' # ratchet:actions/github-script@v8.0.0
+        with:
+          script: |-
+            core.info('Finding unlabeled issues and issues marked for triage...');
 
-          echo '📝 Setting output for GitHub Actions...'
-          echo "issues_to_triage=${ISSUES}" >> "${GITHUB_OUTPUT}"
+            const issuesToTriage = [];
+            for await (const response of github.paginate.iterator(github.rest.issues.listForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100,
+            })) {
+              for (const issue of response.data) {
+                if (issue.pull_request) {
+                  continue;
+                }
 
-          ISSUE_COUNT="$(echo "${ISSUES}" | jq 'length')"
-          echo "✅ Found ${ISSUE_COUNT} issue(s) to triage! 🎯"
+                const labelNames = (issue.labels || [])
+                  .map((label) => typeof label === 'string' ? label : label.name)
+                  .filter(Boolean);
+
+                if (labelNames.length === 0 || labelNames.includes('status/needs-triage')) {
+                  issuesToTriage.push({
+                    number: issue.number,
+                    title: issue.title,
+                    body: issue.body || '',
+                  });
+                }
+
+                if (issuesToTriage.length >= 100) {
+                  break;
+                }
+              }
+
+              if (issuesToTriage.length >= 100) {
+                break;
+              }
+            }
+
+            core.setOutput('issues_to_triage', JSON.stringify(issuesToTriage));
+            core.info(`Found ${issuesToTriage.length} issue(s) to triage!`);
 
       - name: 'Run Gemini Issue Analysis'
         id: 'gemini_issue_analysis'
