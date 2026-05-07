@@ -146,23 +146,17 @@ export default function Hero() {
           </h1>
 
           <p className="mt-10 max-w-2xl text-lg leading-relaxed text-text-secondary md:text-xl">
-            We build the industrial policy architecture that connects
-            governments, defence technology, and capital markets.
-            Sharp analysis. Funded programmes. Coalitions that deliver.
+            A boutique defence and dual-use consultancy. We win you the
+            funding, build the consortia, and deliver alongside you &mdash;
+            across NL, NATO, and EU programmes.
           </p>
         </div>
 
         {/* Data ticker bar */}
         <div className="mt-20 border-t border-border pt-8">
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 md:gap-8">
             <div>
-              <p className="text-xs font-mono uppercase tracking-[0.15em] text-text-muted mb-2">EU Defence Spend 2025</p>
-              <p className="text-2xl font-display font-bold md:text-3xl">
-                <AnimatedNumber target={392} prefix="€" suffix="B" />
-              </p>
-            </div>
-            <div>
-              <p className="text-xs font-mono uppercase tracking-[0.15em] text-text-muted mb-2">ReArm Europe</p>
+              <p className="text-xs font-mono uppercase tracking-[0.15em] text-text-muted mb-2">ReArm Europe (2025&ndash;2030)</p>
               <p className="text-2xl font-display font-bold md:text-3xl">
                 <AnimatedNumber target={800} prefix="€" suffix="B" duration={2500} />
               </p>
@@ -174,9 +168,9 @@ export default function Hero() {
               </p>
             </div>
             <div>
-              <p className="text-xs font-mono uppercase tracking-[0.15em] text-text-muted mb-2">Total Mobilised</p>
+              <p className="text-xs font-mono uppercase tracking-[0.15em] text-text-muted mb-2">European Defence Fund (2021&ndash;2027)</p>
               <p className="text-2xl font-display font-bold md:text-3xl">
-                <AnimatedNumber target={1342} prefix="€" suffix="B" duration={3000} />
+                <AnimatedNumber target={8} prefix="€" suffix="B" duration={2200} />
               </p>
             </div>
           </div>

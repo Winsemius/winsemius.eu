@@ -2,30 +2,30 @@
 
 import { useReveal } from "../hooks/useReveal";
 
-const brokerRoles = [
+const valuePoints = [
   {
-    title: "Navigate procurement",
+    title: "Map the funding landscape",
     description:
-      "European defence procurement is fragmented across 27+ national systems, each with different rules, timelines, and decision-makers. A broker knows which doors to knock on and how to get through them.",
+      "Dutch national programmes (RVO, DTFA, NWO), NATO (DIANA, STO), EDA, EDF, Horizon Europe, EIC. We track what is open, what is opening, and which programme actually fits your case.",
   },
   {
-    title: "Unlock funding",
+    title: "Build the consortium and write the proposal",
     description:
-      "EU defence instruments — EDF, SAFE, ReArm Europe, PESCO — require cross-border consortia and complex proposals. A broker assembles the partnerships and handles the paperwork.",
+      "We don’t just point you at the call. We act as lead applicant where useful, run partner search, manage the submission, and red-team the bid before it goes in.",
   },
   {
-    title: "Connect tech to end-users",
+    title: "Stand with you as project partner",
     description:
-      "Innovative companies build great technology but struggle to reach military buyers. A broker bridges that gap — matching capabilities to operational needs and getting solutions in front of decision-makers.",
+      "Where it adds value, Winsemius joins the consortium itself — work package lead, exploitation coordinator, dissemination partner, or embedded strategic advisor. Skin in the game, not just slides.",
   },
   {
-    title: "Shorten the valley of death",
+    title: "Deliver beyond the win",
     description:
-      "The average European defence procurement cycle is 3–7 years. A broker compresses that timeline — from prototype to signed contract — by knowing the system from the inside.",
+      "Reporting, milestone tracking, financial compliance, consortium governance, and follow-on opportunity development. We stay through execution, not only through award.",
   },
 ];
 
-export default function WhatIsABroker() {
+export default function WhyWinsemius() {
   const ref = useReveal();
 
   return (
@@ -35,24 +35,24 @@ export default function WhatIsABroker() {
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px w-8 bg-amber" />
             <span className="text-xs font-mono uppercase tracking-[0.2em] text-amber">
-              The Role
+              Why Winsemius
             </span>
           </div>
           <h2 className="text-4xl font-bold tracking-[-0.04em] text-text md:text-5xl">
-            What is a defence broker?
+            We don&rsquo;t intermediate. We add value.
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-text-secondary max-w-3xl">
-            A defence broker is an independent intermediary that connects
-            technology companies, governments, and capital markets within the
-            European defence ecosystem. Where defence primes have decades of
-            institutional relationships, smaller companies — often the ones
-            building the most innovative technology — have none. A broker
-            closes that gap.
+            European defence and dual-use markets are complex: fragmented
+            procurement, dense regulation, and dozens of overlapping funding
+            programmes. Winsemius is a boutique consultancy built specifically
+            for these markets. We map the landscape, we write the proposals,
+            we build the consortia &mdash; and where it makes sense, we step
+            into the project alongside you.
           </p>
         </div>
 
         <div className="mt-16 grid gap-8 md:grid-cols-2">
-          {brokerRoles.map((role, i) => (
+          {valuePoints.map((role, i) => (
             <div
               key={i}
               className={`reveal stagger-${Math.min(i + 1, 4)} border border-border p-8 hover:border-amber/30 transition-colors duration-300`}
@@ -76,11 +76,9 @@ export default function WhatIsABroker() {
 
         <div className="reveal mt-16 border-t border-border pt-8">
           <p className="text-base leading-relaxed text-text-secondary max-w-3xl">
-            <span className="text-text font-medium">Winsemius</span> is that
-            broker. We operate at the intersection of defence technology,
-            industrial policy, and capital — helping companies access the right
-            funding, build the right partnerships, and reach the right buyers
-            across Europe.
+            <span className="text-text font-medium">Winsemius</span> is the
+            boutique defence consultancy that wins the funding and helps you
+            deliver against it &mdash; across NL, NATO, and EU programmes.
           </p>
         </div>
       </div>

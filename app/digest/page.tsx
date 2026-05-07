@@ -47,14 +47,14 @@ const digestSample = [
     title: "Military Spending in Europe: 2025 Trends",
     type: "Fact Sheet",
     relevance:
-      "Documents the third consecutive year of spending increases across Northern and Eastern Europe. Baltic states now at 3%+ GDP. Quantifies the market opportunity for defence brokers operating in the JEF region.",
+      "Documents the third consecutive year of spending increases across Northern and Eastern Europe. Baltic states now at 3%+ GDP. Quantifies the market opportunity for defence and dual-use consultancies operating in the JEF region.",
   },
   {
     source: "HCSS",
     title: "The SAFE Facility: Implementation Challenges and Opportunities",
     type: "Strategic Monitor",
     relevance:
-      "First independent analysis of the SAFE instrument's disbursement mechanics. Identifies consortium requirements that will determine who can access the funds — and who will need intermediary support.",
+      "First independent analysis of the SAFE instrument's disbursement mechanics. Identifies consortium requirements that will determine who can access the funds — and who will need expert support to assemble a winning bid.",
   },
   {
     source: "ICDS",

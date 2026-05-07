@@ -20,11 +20,12 @@ export default function Thesis() {
             lacks is the industrial policy architecture to connect them.
           </p>
           <p className="mt-8 text-base leading-relaxed text-text-secondary max-w-2xl">
-            We build that architecture&mdash;through sharp analysis, funded
-            programmes, and coalitions that deliver. An independent
-            intermediary at the intersection of government, industry, and
-            capital. Based in Amsterdam, focused on the JEF region and the
-            Baltic.
+            We build that architecture &mdash; through sharp analysis, funded
+            programmes, and coalitions that deliver. A boutique defence and
+            dual-use consultancy that doesn&rsquo;t advise from the sidelines:
+            we participate as consortium partners, write the proposals, and
+            deliver alongside our clients. Based in Amsterdam, focused on
+            NL, NATO, and EU programmes.
           </p>
         </div>
       </div>
