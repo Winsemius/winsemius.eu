@@ -131,7 +131,7 @@ export default function Hero() {
           <div className="inline-flex items-center gap-3 border border-border px-4 py-2 mb-10">
             <span className="h-2 w-2 rounded-full bg-amber" style={{ animation: "pulse-subtle 2s ease-in-out infinite" }} />
             <span className="text-xs font-mono uppercase tracking-[0.2em] text-amber">
-              Defence &middot; Industrial Policy &middot; Capital
+              Defence &middot; Dual-Use &middot; Space
             </span>
           </div>
 
@@ -198,7 +198,7 @@ export default function Hero() {
           <span className="hidden sm:inline text-border-bright">//</span>
           <span>Est. 2024</span>
           <span className="hidden sm:inline text-border-bright">//</span>
-          <span>JEF &middot; Baltic &middot; Northern Flank</span>
+          <span>NL &middot; NATO &middot; EU programmes</span>
         </div>
       </div>
     </section>

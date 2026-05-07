@@ -49,7 +49,7 @@ export default function Introduction() {
 
               {/* Key domains */}
               <div className="mt-10 flex flex-wrap gap-3">
-                {["Cyber", "Autonomous Vehicles", "Drones & UAS", "Robotics"].map((domain) => (
+                {["Cyber", "Autonomous Vehicles", "Drones & UAS", "Robotics", "Space"].map((domain) => (
                   <span
                     key={domain}
                     className="border border-amber/30 bg-amber/5 px-4 py-2 text-xs font-mono uppercase tracking-[0.1em] text-amber"

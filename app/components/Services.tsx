@@ -1,92 +1,34 @@
 "use client";
 
 import { useReveal } from "../hooks/useReveal";
+import { services } from "../services/services-data";
 
-const services = [
-  {
-    slug: "funding-navigator",
-    title: "EU Funding Navigator",
-    what: "Match your company to the right EU defence funding instrument — EDF, SAFE, ReArm Europe, PESCO, or national MoD innovation programmes. We handle the proposal, you build the technology.",
-    outcome: "Funded programmes, not grant applications.",
-  },
-  {
-    slug: "consortium-builder",
-    title: "Consortium Builder",
-    what: "Cross-border consortium assembly for EU-funded defence projects. Capability-based partner matching, industrial teaming agreements, IP frameworks, and joint bid coordination across 3+ countries.",
-    outcome: "Consortia that exist as legal entities, not as slide decks.",
-  },
-  {
-    slug: "intelligence",
-    title: "Defence Market Intelligence",
-    what: "Monthly synthesis of European defence think tank research, procurement signals, and policy shifts. 45+ sources distilled into actionable briefings with Winsemius analysis on top.",
-    outcome: "Know what's moving before the tender drops.",
-  },
-  {
-    slug: "procurement",
-    title: "Procurement Fast-Track",
-    what: "Operator-driven validation sprints, procurement pathway acceleration, and contract vehicle structuring. From prototype to signed contract without the 3-year procurement cycle.",
-    outcome: "Procurement-ready solutions in weeks, not years.",
-  },
-  {
-    slug: "investor-matching",
-    title: "Investor Matching",
-    what: "Connect defence technology companies with aligned capital — VC, PE, sovereign wealth, and institutional investors who understand defence. Due diligence support and deal structuring.",
-    outcome: "Capital that understands your sector and your timeline.",
-  },
-  {
-    slug: "export-compliance",
-    title: "Export & Compliance",
-    what: "Navigate export controls, dual-use regulations, and cross-border compliance across European jurisdictions. Licensing strategy, end-user certification, and supply chain security.",
-    outcome: "Capability delivered across borders with licences secured.",
-  },
-  {
-    slug: "technology-scouting",
-    title: "Defence Technology Scouting",
-    what: "Systematic identification and assessment of emerging defence technologies across European ecosystems. We map capabilities to operational requirements and connect you with the companies building them.",
-    outcome: "The right technology matched to the right need, before your competitors find it.",
-  },
-  {
-    slug: "mergers-acquisitions",
-    title: "M&A Advisory",
-    what: "Buy-side and sell-side advisory for defence technology transactions. Target identification, due diligence, valuation, deal structuring, and post-merger integration for defence sector M&A.",
-    outcome: "Defence deals that close, with regulatory clearance secured.",
-  },
-  {
-    slug: "market-entry",
-    title: "Market Entry Strategy",
-    what: "Strategic positioning for companies entering European defence markets. Stakeholder mapping, regulatory landscape analysis, go-to-market sequencing, and institutional relationship building across target countries.",
-    outcome: "Market access that produces contracts, not calendar invites.",
-  },
-  {
-    slug: "pricing-capture",
-    title: "Pricing & Capture Strategy",
-    what: "Bid strategy, competitive positioning, and pricing optimisation for defence tenders. Win theme development, teaming strategy, and capture management from opportunity identification to contract award.",
-    outcome: "Higher win rates on the bids that matter.",
-  },
-];
-
-const serviceIcons = [
-  // Funding - coins
-  <svg key="0" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="8" /><path d="M12 8v8M9 11h6M9 14h6" /></svg>,
-  // Consortium - network
-  <svg key="1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="5" r="3" /><circle cx="5" cy="19" r="3" /><circle cx="19" cy="19" r="3" /><path d="M12 8v3M7.5 17.5 10 13M16.5 17.5 14 13" /></svg>,
-  // Intelligence - radar
-  <svg key="2" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /><path d="M12 2v4M12 18v4" /></svg>,
-  // Procurement - lightning
-  <svg key="3" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" /></svg>,
-  // Investor - chart
-  <svg key="4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg>,
-  // Export - globe
-  <svg key="5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>,
-  // Tech scouting - search/crosshair
-  <svg key="6" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /><path d="M11 8v6M8 11h6" /></svg>,
-  // M&A - handshake/merge
-  <svg key="7" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /><path d="m4 12 5 5L20 6" /></svg>,
-  // Market entry - door/arrow
-  <svg key="8" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /><polyline points="10 17 15 12 10 7" /><line x1="15" y1="12" x2="3" y2="12" /></svg>,
-  // Pricing/capture - target
-  <svg key="9" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg>,
-];
+const serviceIcons: Record<string, React.ReactElement> = {
+  "grant-and-subsidy-advisory": (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="8" /><path d="M12 8v8M9 11h6M9 14h6" /></svg>
+  ),
+  "corporate-development": (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21V8l9-5 9 5v13" /><path d="M9 21v-7h6v7" /></svg>
+  ),
+  "financing-and-m-and-a": (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg>
+  ),
+  "ecosystem-and-community": (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="5" r="3" /><circle cx="5" cy="19" r="3" /><circle cx="19" cy="19" r="3" /><path d="M12 8v3M7.5 17.5 10 13M16.5 17.5 14 13" /></svg>
+  ),
+  "market-intelligence": (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /><path d="M12 2v4M12 18v4" /></svg>
+  ),
+  "regulatory-and-compliance": (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z" /></svg>
+  ),
+  "communications-and-thought-leadership": (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 11a9 9 0 0 1 9-9v0a9 9 0 0 1 9 9v3a4 4 0 0 1-4 4h-1v-7h5M3 11v3a4 4 0 0 0 4 4h1v-7H3" /></svg>
+  ),
+  "post-award-execution": (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
+  ),
+};
 
 export default function Services() {
   const ref = useReveal();
@@ -102,8 +44,10 @@ export default function Services() {
           <h2 className="text-4xl font-bold tracking-[-0.04em] text-text md:text-5xl">
             What we do
           </h2>
-          <p className="mt-4 text-base text-text-secondary max-w-xl">
-            Select a capability to learn more.
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-text-secondary">
+            Eight services across the defence and dual-use lifecycle &mdash; from
+            strategy and intelligence through to funding, delivery, and post-award.
+            Grant and subsidy advisory is our flagship.
           </p>
         </div>
 
@@ -112,20 +56,29 @@ export default function Services() {
             <a
               key={s.slug}
               href={`/services/${s.slug}`}
-              className={`reveal stagger-${Math.min(i + 1, 5)} group relative bg-void p-8 transition-all duration-300 hover:bg-surface-raised/50 block`}
+              className={`reveal stagger-${Math.min(i + 1, 5)} group relative bg-void p-8 transition-all duration-300 hover:bg-surface-raised/50 block ${
+                s.flagship ? "lg:col-span-2 lg:row-span-1 ring-1 ring-amber/40 ring-inset" : ""
+              }`}
             >
               <div className="absolute top-0 left-0 h-[2px] w-0 bg-amber transition-all duration-300 group-hover:w-full" />
-              <div className="mb-4 text-amber/60 group-hover:text-amber transition-colors duration-300">
-                {serviceIcons[i]}
+              <div className="flex items-center gap-3 mb-4">
+                <div className="text-amber/60 group-hover:text-amber transition-colors duration-300">
+                  {serviceIcons[s.slug]}
+                </div>
+                {s.flagship && (
+                  <span className="text-[10px] font-mono uppercase tracking-[0.15em] text-amber border border-amber/40 px-2 py-0.5">
+                    Flagship
+                  </span>
+                )}
               </div>
               <span className="text-xs font-mono text-text-muted">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="mt-2 text-lg font-semibold leading-snug tracking-[-0.01em] text-text font-display group-hover:text-amber transition-colors duration-300">
+              <h3 className="mt-2 text-lg font-semibold leading-snug tracking-[-0.01em] text-text font-display group-hover:text-amber transition-colors duration-300 md:text-xl">
                 {s.title}
               </h3>
               <p className="mt-4 text-sm leading-relaxed text-text-secondary">
-                {s.what}
+                {s.homepageDescription}
               </p>
               <div className="mt-6 border-t border-border pt-4">
                 <p className="text-xs font-mono tracking-[0.1em] text-amber uppercase">

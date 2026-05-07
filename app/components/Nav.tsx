@@ -5,16 +5,14 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const serviceItems = [
-  { slug: "funding-navigator", label: "EU Funding Navigator" },
-  { slug: "consortium-builder", label: "Consortium Builder" },
-  { slug: "intelligence", label: "Defence Market Intelligence" },
-  { slug: "procurement", label: "Procurement Fast-Track" },
-  { slug: "investor-matching", label: "Investor Matching" },
-  { slug: "export-compliance", label: "Export & Compliance" },
-  { slug: "technology-scouting", label: "Defence Technology Scouting" },
-  { slug: "mergers-acquisitions", label: "M&A Advisory" },
-  { slug: "market-entry", label: "Market Entry Strategy" },
-  { slug: "pricing-capture", label: "Pricing & Capture Strategy" },
+  { slug: "grant-and-subsidy-advisory", label: "Grant & Subsidy Advisory", flagship: true },
+  { slug: "corporate-development", label: "Corporate Development" },
+  { slug: "financing-and-m-and-a", label: "Financing & M&A Advisory" },
+  { slug: "ecosystem-and-community", label: "Ecosystem & Community" },
+  { slug: "market-intelligence", label: "Defence Market Intelligence" },
+  { slug: "regulatory-and-compliance", label: "Regulatory & Export Compliance" },
+  { slug: "communications-and-thought-leadership", label: "Communications & Thought Leadership" },
+  { slug: "post-award-execution", label: "Post-Award Execution" },
 ];
 
 const links = [
@@ -139,9 +137,14 @@ export default function Nav() {
                   <a
                     key={s.slug}
                     href={`/services/${s.slug}`}
-                    className="block px-5 py-2.5 text-sm text-text-muted hover:text-amber hover:bg-surface-raised/50 transition-colors duration-150"
+                    className="flex items-center justify-between gap-3 px-5 py-2.5 text-sm text-text-muted hover:text-amber hover:bg-surface-raised/50 transition-colors duration-150"
                   >
-                    {s.label}
+                    <span>{s.label}</span>
+                    {"flagship" in s && s.flagship && (
+                      <span className="text-[10px] font-mono uppercase tracking-[0.15em] text-amber border border-amber/40 px-1.5 py-0.5">
+                        Flagship
+                      </span>
+                    )}
                   </a>
                 ))}
               </div>
