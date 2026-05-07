@@ -136,20 +136,36 @@ export default function Hero() {
           </div>
 
           <p className="text-sm font-mono uppercase tracking-[0.2em] text-amber/80 mb-6 md:text-base">
-            Funding strategies for startups &amp; scale-ups
+            Defence &amp; dual-use grants &mdash; mapped, matched, won
           </p>
 
           <h1 className="text-5xl font-bold leading-[0.95] tracking-[-0.04em] text-text md:text-7xl lg:text-[5.5rem]">
-            Europe has the budgets.
+            Tell us your project.
             <br />
-            <span className="text-amber">It lacks the architecture.</span>
+            <span className="text-amber">We&rsquo;ll get it funded.</span>
           </h1>
 
           <p className="mt-10 max-w-2xl text-lg leading-relaxed text-text-secondary md:text-xl">
-            A boutique defence and dual-use consultancy. We win you the
-            funding, build the consortia, and deliver alongside you &mdash;
-            across NL, NATO, and EU programmes.
+            A boutique defence and dual-use consultancy. We map your funding
+            options across NL, NATO, and EU programmes, lead the proposal,
+            and stand with you through delivery.
           </p>
+
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center gap-2 border border-amber bg-amber px-6 py-3 text-sm font-mono uppercase tracking-[0.15em] text-void transition-colors duration-200 hover:bg-amber/90"
+            >
+              Book a free consultation
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </a>
+            <a
+              href="#advisor"
+              className="inline-flex items-center justify-center gap-2 border border-border px-6 py-3 text-sm font-mono uppercase tracking-[0.15em] text-text-secondary transition-colors duration-200 hover:border-amber/50 hover:text-amber"
+            >
+              Try the funding strategist
+            </a>
+          </div>
         </div>
 
         {/* Data ticker bar */}
