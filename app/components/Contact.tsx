@@ -46,6 +46,25 @@ export default function Contact() {
           </a>
         </div>
 
+        <div className="reveal stagger-2 mt-12 max-w-xl border border-border bg-surface-raised p-6">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="h-px w-6 bg-amber" />
+            <span className="text-xs font-mono uppercase tracking-[0.2em] text-amber">Or start here</span>
+          </div>
+          <p className="text-base text-text-secondary leading-relaxed">
+            Try our free Funding Path tool first&mdash;your top three EU, NATO, Netherlands or
+            ESA funding routes in 60 seconds, with live data from the EU Funding &amp; Tenders
+            Portal. Then come back here to talk.
+          </p>
+          <a
+            href="https://apply.funding.winsemius.eu"
+            className="mt-4 inline-flex items-center gap-2 text-sm font-mono uppercase tracking-[0.1em] text-amber transition-colors hover:text-amber-bright group"
+          >
+            <span>Check your funding routes &mdash; free</span>
+            <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+          </a>
+        </div>
+
         <div className="reveal stagger-2 mt-10 text-sm font-mono text-text-muted">
           <p>Hillegomstraat 7-H, 1058 LN Amsterdam</p>
         </div>
