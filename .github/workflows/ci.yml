@@ -1,0 +1,70 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.repository }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static-site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Check local HTML assets and site metadata
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import unquote, urlsplit
+
+          root = Path(".")
+          html_files = sorted(root.rglob("*.html"))
+          assert html_files, "No HTML files found"
+          assert (root / "CNAME").read_text().strip(), "CNAME is empty"
+
+          class Links(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.targets = []
+
+              def handle_starttag(self, tag, attrs):
+                  attrs = dict(attrs)
+                  for key in ("href", "src"):
+                      value = attrs.get(key)
+                      if value:
+                          self.targets.append(value)
+
+          missing = []
+          for page in html_files:
+              parser = Links()
+              parser.feed(page.read_text(errors="replace"))
+              for raw in parser.targets:
+                  parsed = urlsplit(raw)
+                  if not raw or raw.startswith(("#", "mailto:", "tel:", "data:", "javascript:")):
+                      continue
+                  if parsed.scheme or parsed.netloc:
+                      continue
+                  target = unquote(parsed.path)
+                  # Extensionless paths are generated-site routes; validate concrete
+                  # file assets here and leave route resolution to deployment.
+                  if not Path(target).suffix or Path(target).suffix.lower() == ".md":
+                      continue
+                  candidate = root / target.lstrip("/") if target.startswith("/") else page.parent / target
+                  if candidate.is_dir():
+                      candidate /= "index.html"
+                  if not candidate.exists():
+                      missing.append(f"{page}: {raw} -> {candidate}")
+
+          if missing:
+              print("\n".join(missing))
+              raise SystemExit(f"{len(missing)} local HTML asset links are missing")
+          print(f"Checked {len(html_files)} HTML files and all local links/assets.")
+          PY
+      - name: Check whitespace
+        run: git diff --check
