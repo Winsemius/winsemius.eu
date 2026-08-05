@@ -43,11 +43,13 @@ jobs:
           env | grep '^DEBUG_'
 
   dispatch:
+    # Gemini stays inactive until repository authentication is configured.
+    # Set GEMINI_ENABLED=true only after GEMINI_API_KEY, Vertex, or GCA auth exists.
     # For PRs: only if not from a fork
     # For issues: only on open/reopen
     # For comments: only if user types @gemini-cli and is OWNER/MEMBER/COLLABORATOR
     if: |-
-      (
+      vars.GEMINI_ENABLED == 'true' && (
         github.event_name == 'pull_request' &&
         github.event.pull_request.head.repo.fork == false
       ) || (
