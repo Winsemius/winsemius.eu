@@ -27,6 +27,8 @@ defaults:
 
 jobs:
   triage:
+    # Set GEMINI_ENABLED=true only after Gemini authentication is configured.
+    if: vars.GEMINI_ENABLED == 'true'
     runs-on: 'ubuntu-latest'
     timeout-minutes: 7
     permissions:
