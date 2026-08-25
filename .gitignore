@@ -6,3 +6,5 @@ compendium-src/
 
 .gemini/
 gha-creds-*.json
+
+.claude/settings.local.json
