@@ -195,9 +195,9 @@ export default function Hero() {
         {/* Bottom bar */}
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-8 text-xs font-mono uppercase tracking-[0.15em] text-text-muted">
           <span>Amsterdam, NL</span>
-          <span className="hidden sm:inline text-border-bright">//</span>
+          <span className="hidden sm:inline text-border-bright">{"//"}</span>
           <span>Est. 2024</span>
-          <span className="hidden sm:inline text-border-bright">//</span>
+          <span className="hidden sm:inline text-border-bright">{"//"}</span>
           <span>NL &middot; NATO &middot; EU programmes</span>
         </div>
       </div>
