@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const serviceItems = [
@@ -65,7 +66,7 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a
+        <Link
           href="/"
           className="flex items-center gap-3"
           onClick={(e) => {
@@ -85,7 +86,7 @@ export default function Nav() {
           <span className="font-display text-lg tracking-[-0.01em] text-text font-medium">
             Winsemius
           </span>
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <ul className="hidden items-center gap-8 md:flex">
@@ -199,7 +200,7 @@ export default function Nav() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   className={`transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}
-                >
+              >
                   <polyline points="6 9 12 15 18 9" />
                 </svg>
               </button>
