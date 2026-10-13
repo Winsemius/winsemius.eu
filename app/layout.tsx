@@ -48,9 +48,9 @@ export default function RootLayout({
                 "At the intersection of defence technology, industrial policy, and capital markets. Policy influence, funding strategy, and coalition building.",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "Hillegomstraat 7-H",
-                addressLocality: "Amsterdam",
-                postalCode: "1058 LN",
+                streetAddress: "Uiverweg 2",
+                addressLocality: "Schiphol",
+                postalCode: "1118 DS",
                 addressCountry: "NL",
               },
               contactPoint: {

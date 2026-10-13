@@ -66,7 +66,7 @@ export default function Contact() {
         </div>
 
         <div className="reveal stagger-2 mt-10 text-sm font-mono text-text-muted">
-          <p>Hillegomstraat 7-H, 1058 LN Amsterdam</p>
+          <p>Uiverweg 2, 1118 DS Schiphol</p>
         </div>
       </div>
     </section>
